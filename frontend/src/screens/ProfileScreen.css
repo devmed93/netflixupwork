@@ -1,0 +1,94 @@
+.profileScreen {
+    background-color: #111;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-content: center;
+}
+.edit-profile{
+	font-weight: 400;
+	padding :.5em 0em;
+}
+.pfScreen-container {
+    /* height: 100%; */
+    width: 80vw;
+    max-width: 600px;
+    /* background-color: orange; */
+    display: flex;
+}
+
+.profileScreen-body {
+    width: 100%;
+    /* padding : 0.4em 0.4em; */
+    margin-left: 1.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.profileScreen-avatar {
+    height: 70px;
+}
+
+.userEmail {
+    font-size: 0.9em;
+    font-weight: 500;
+    background-color: #666;
+    padding: 0.5em 1em;
+    margin-bottom: 1.1em;
+}
+
+.current-plan {
+    font-weight: 600;
+}
+
+.renewal-date {
+    font-size: 0.8em;
+    font-weight: 600;
+    color: lightgrey;
+    margin-bottom: 2.5em;
+}
+.signOut {
+    font-weight: bold;
+    padding: 0.4em;
+}
+
+/* styling plans */
+
+.plan {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.5em;
+}
+
+.plan-button {
+    border-radius: 1px;
+    padding: 0em 1.5em;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+.current-package {
+    padding: 0.3em 2em;
+    font-weight: 600;
+    background-color: #666;
+    font-size: 0.7em;
+}
+
+.plan-description {
+    font-size: 0.8em;
+    font-weight: 600;
+    color: lightgrey;
+	position: relative;
+}
+
+.current.plan-description{
+    color: whitesmoke ;
+}
+
+.quality{
+	/* display: block; */
+	position: absolute;
+	left: 0;
+	top: 1.5em;
+	font-size: 0.9em;
+}

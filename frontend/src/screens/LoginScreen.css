@@ -1,0 +1,99 @@
+.loginScreen {
+    height: 100vh;
+    max-width: 1920px;
+    position: relative;
+
+    color: white;
+}
+.loginScreen-background {
+    width: 100%;
+    height: 100vh;
+    background: url("https://s3.us-east-2.amazonaws.com/getflix-pro/landing.jpg")
+        center/cover no-repeat;
+    object-fit: contain;
+
+    position: fixed;
+}
+.loginScreen-logo {
+    position: fixed;
+    top: 0;
+    object-fit: contain;
+    width: 130px;
+    margin-left: 1.5em;
+    padding: 0;
+    z-index: 12;
+}
+
+.loginScreen-button {
+    position: fixed;
+    right: 1.5em;
+    top: 1.5em;
+
+    padding: 0.5em 1em;
+    border-radius: 2px;
+    border: none !important;
+    outline: none;
+    z-index: 12;
+}
+.loginScreen-gradient {
+    width: 100%;
+    height: 80%;
+    background-image: linear-gradient(
+        360deg,
+        transparent,
+        rgba(4, 4, 4, 0.61),
+        rgb(0, 0, 0)
+    );
+    opacity: 0.8;
+}
+.loginScreen-body {
+    /* width: 560px; */
+    position: absolute;
+    top: 30%;
+    text-align: center;
+    width: 100%;
+    /* margin: 0 auto; */
+    padding: 0 1.5em;
+}
+.loginScreen-body h1,
+h2,
+h3 {
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+h2 {
+    font-weight: 400;
+}
+h3 {
+    font-weight: 300;
+    font-size: 0.9em;
+}
+
+button {
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: rgb(228, 51, 28);
+}
+.login-subscription {
+    height: 35px;
+}
+.login-subscription > * {
+    margin-top: 10px;
+    height: 32px;
+    outline: none;
+    border: 1px solid rgb(44, 43, 43);
+}
+.login-button {
+    border-left: none;
+    padding: 0.5em 0.8em;
+    border-radius: 0 2px 2px 0;
+    font-size: 0.8em;
+}
+
+.subscription-email {
+    padding: 0 1em;
+    border-radius: 2px 0 0 2px;
+    border-right: none;
+    width: 270px;
+    max-width: 70%;
+}
