@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+.movieScreen {
+    /* font-family: sans-serif; */
+    /* background-color: orange; */
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+    background-color: #020202;
+}
+.movie-container {
+    color: rgba(255, 255, 255, 0.986);
+    /* width: 95%; */
+    max-width: 900px;
+
+    display: flex;
+    margin: 0 auto;
+}
+.movie-container > * {
+    margin-inline: 1.6em;
+}
+
+.movie-poster {
+    width: 35%;
+}
+.movie-details {
+}
+.movie-header {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: flex-end; */
+}
+
+.movie-release {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65em;
+    font-weight: 500;
+    color: gray;
+    margin-top: 0.7em;
+    margin-bottom: 2.5em;
+}
+
+.movie-release-year,
+.movie-duration {
+    border-right: 2px solid gray;
+    padding-right: 1.4em;
+}
+.movie-duration,
+.movie-age {
+    padding-left: 1.4em;
+}
+
+.overview, .screenshots-title {
+    font-weight: 600;
+    margin-bottom: 2em;
+}
+
+.movie-infos {
+}
+.movie-rating {
+    font-size: 1em;
+    padding-top: 0.4em;
+}
+
+.movie-rating > * {
+    margin-inline: 0.2em;
+}
+.fa-star {
+    color: yellow;
+}
+.movie-title {
+    font-family: "Montserrat";
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.movie-short-resume {
+    font-family: "Montserrat";
+    font-size: 0.7em;
+    letter-spacing: 0.02em;
+    line-height: 1.7em;
+}
+
+.movie-casting {
+    margin-top: 2em;
+    display: grid;
+    grid-row-gap: 1em;
+    grid-column-gap: 2em;
+    grid-template-columns: 1fr 3fr;
+    font-family: "Montserrat";
+    font-size: 0.65em;
+}
+.gray {
+    color: gray;
+    font-weight: 500;
+}
+
+.screenshots-title{
+    margin-block: 2em;
+    font-weight: 400;
+
+}
+.screenshots {
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
+.screenshots {
+    /* background-color: red; */
+    /* height: 120px; */
+    display: flex;
+    justify-content: space-between;
+}
+.img-container {
+    width: 150px;
+    /* height: 100%; */
+    border-radius: 2px;
+    /* margin-inline: 2.2em; */
+}
+.img-container img {
+    width: 155px;
+    height: 115px;
+    border-radius: 1px;
+    object-fit: cover;
+}
