@@ -52,7 +52,8 @@
     padding-left: 1.4em;
 }
 
-.overview, .screenshots-title {
+.overview,
+.screenshots-title {
     font-weight: 600;
     margin-bottom: 2em;
 }
@@ -97,30 +98,96 @@
     font-weight: 500;
 }
 
-.screenshots-title{
+.screenshots-title {
     margin-block: 2em;
     font-weight: 400;
+}
 
-}
 .screenshots {
-    /* display: flex; */
-    /* justify-content: space-between; */
-}
-.screenshots {
-    /* background-color: red; */
-    /* height: 120px; */
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 .img-container {
-    width: 150px;
-    /* height: 100%; */
+    width: 30%;
     border-radius: 2px;
-    /* margin-inline: 2.2em; */
 }
 .img-container img {
-    width: 155px;
+    width: 100%;
     height: 115px;
     border-radius: 1px;
     object-fit: cover;
+}
+
+/* =======Media Queries====== */
+@media all and (max-width: 490px) {
+    .movieScreen {
+        height: 100%;
+    }
+    .movie-container {
+        /* margin-top: 100px; */
+        flex-direction: column;
+    }
+    .screenshots,
+    .screenshots-title {
+        display: none;
+    }
+    .movie-poster {
+        width: 70%;
+        margin-inline: auto;
+        margin-block: 4em 1.5em;
+    }
+    .movie-header{
+        justify-content: space-around;
+    }
+    .movie-title{
+        font-size: 1em;
+        max-width: 170px;
+    }
+
+    .movie-casting{
+        /* padding-bottom: 2em; */
+        margin-bottom:2em;
+    }
+}
+
+
+/* ======on Tablet ========= */
+@media all and (min-width : 490px) and (max-width : 890px){
+   
+   
+    .screenshots, .screenshots-title{
+        /* display: none; */
+    }
+
+    .movie-release{
+    margin-bottom: 1em;
+}
+.movie-container > * {
+    margin-inline: 0.8em;
+}
+.overview{
+    margin-bottom: 1em;
+}
+.movie-casting{
+    margin-top: 1em;
+}
+.screenshots img{
+    height: 100px;
+}
+}
+
+@media all and (min-width : 480px) and (max-width : 589px){
+.movie-release{
+    margin-bottom: 1em;
+}
+.movie-container > * {
+    margin-inline: 0.6em;
+}
+.overview{
+    margin-bottom: 1em;
+}
+.movie-casting{
+    margin-top: 1em;
+}
 }
