@@ -8,14 +8,25 @@
     display: grid;
     place-content: center;
     background-color: #020202;
+
+    width: 100%;
+    height: 100vh;
+    background: url("https://s3.us-east-2.amazonaws.com/getflix-pro/landing.jpg")
+        center/cover no-repeat;
+    object-fit: contain;
+
+    position: fixed;
 }
 .movie-container {
+    background-color: #020202e7;
+    padding: 1.5em;
     color: rgba(255, 255, 255, 0.986);
     /* width: 95%; */
     max-width: 900px;
 
     display: flex;
     margin: 0 auto;
+    border-radius: 3px;
 }
 .movie-container > * {
     margin-inline: 1.6em;
@@ -127,6 +138,7 @@
     .movie-container {
         /* margin-top: 100px; */
         flex-direction: column;
+        padding: 2em 0;
     }
     .screenshots,
     .screenshots-title {
@@ -137,57 +149,55 @@
         margin-inline: auto;
         margin-block: 4em 1.5em;
     }
-    .movie-header{
+    .movie-header {
         justify-content: space-around;
     }
-    .movie-title{
+    .movie-title {
         font-size: 1em;
         max-width: 170px;
     }
 
-    .movie-casting{
+    .movie-casting {
         /* padding-bottom: 2em; */
-        margin-bottom:2em;
+        margin-bottom: 2em;
     }
 }
 
-
 /* ======on Tablet ========= */
-@media all and (min-width : 490px) and (max-width : 890px){
-   
-   
-    .screenshots, .screenshots-title{
+@media all and (min-width: 490px) and (max-width: 890px) {
+    .screenshots,
+    .screenshots-title {
         /* display: none; */
     }
 
-    .movie-release{
-    margin-bottom: 1em;
-}
-.movie-container > * {
-    margin-inline: 0.8em;
-}
-.overview{
-    margin-bottom: 1em;
-}
-.movie-casting{
-    margin-top: 1em;
-}
-.screenshots img{
-    height: 100px;
-}
+    .movie-release {
+        margin-bottom: 1em;
+    }
+    .movie-container > * {
+        margin-inline: 0.8em;
+    }
+    .overview {
+        margin-bottom: 1em;
+    }
+    .movie-casting {
+        margin-top: 1em;
+    }
+    .screenshots img {
+        height: 100px;
+    }
 }
 
-@media all and (min-width : 480px) and (max-width : 589px){
-.movie-release{
-    margin-bottom: 1em;
-}
-.movie-container > * {
-    margin-inline: 0.6em;
-}
-.overview{
-    margin-bottom: 1em;
-}
-.movie-casting{
-    margin-top: 1em;
-}
+@media all and (min-width: 480px) and (max-width: 589px) {
+    .movie-release {
+        margin-bottom: 1em;
+    }
+    .movie-container > * {
+        margin-inline: 0.6em;
+    }
+    .overview {
+        margin-bottom: 1em;
+    }
+    .movie-casting {
+        margin-top: 1em;
+    }
 }
