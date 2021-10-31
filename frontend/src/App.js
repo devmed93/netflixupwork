@@ -47,7 +47,7 @@ function App() {
                             <Route exact path='/'>
                                 <HomeScreen />
                             </Route>
-                            <Route exact path='/movie'>
+                            <Route exact path='/movie/:id'>
                                 <MovieScreen />
                             </Route>
                         </>

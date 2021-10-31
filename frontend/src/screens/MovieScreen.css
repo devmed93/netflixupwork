@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
+* {
+    transition: all 0.4s ease-out;
+}
+
 .movieScreen {
     /* font-family: sans-serif; */
     /* background-color: orange; */
@@ -34,6 +38,7 @@
 
 .movie-poster {
     width: 35%;
+    /* max-height: 500px; */
 }
 .movie-details {
 }
@@ -51,6 +56,7 @@
     color: gray;
     margin-top: 0.7em;
     margin-bottom: 2.5em;
+    max-width: 150px;
 }
 
 .movie-release-year,
@@ -86,6 +92,7 @@
     font-family: "Montserrat";
     font-size: 1.5em;
     font-weight: 500;
+    max-width: 300px;
 }
 
 .movie-short-resume {
@@ -108,7 +115,14 @@
     color: gray;
     font-weight: 500;
 }
-
+.genres {
+    /* font-style: italic; */
+    font-size: 1.2em;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    font-variant: small-caps;
+}
 .screenshots-title {
     margin-block: 2em;
     font-weight: 400;
@@ -116,12 +130,13 @@
 
 .screenshots {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-around; */
     width: 100%;
 }
 .img-container {
-    width: 30%;
+    width: 32%;
     border-radius: 2px;
+    margin-right: 0.5em;
 }
 .img-container img {
     width: 100%;
@@ -139,10 +154,23 @@
         /* margin-top: 100px; */
         flex-direction: column;
         padding: 2em 0;
+        overflow-y: scroll;
     }
-    .screenshots,
-    .screenshots-title {
-        display: none;
+    .screenshots {
+        /* display: none; */
+        /* background-color: red; */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+    }
+    .screenshots > * {
+        width: 100%;
+        margin-bottom: 0.5em;
+    }
+    .screenshots img {
+        height: 150px;
+        border-radius: 5px;
     }
     .movie-poster {
         width: 70%;
@@ -187,7 +215,7 @@
     }
 }
 
-@media all and (min-width: 480px) and (max-width: 589px) {
+@media all and (min-width: 490px) and (max-width: 600px) {
     .movie-release {
         margin-bottom: 1em;
     }
