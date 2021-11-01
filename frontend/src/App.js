@@ -15,23 +15,26 @@ function App() {
     const user = useSelector(selectUser);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        const unscubscribe = onAuthStateChanged(auth, (userAuth) => {
-            if (userAuth) {
-                console.log(userAuth);
-                dispatch(
-                    login({
-                        uid: userAuth.uid,
-                        email: userAuth.email,
-                    })
-                );
-            } else {
-                console.log("user is signed out ");
-                dispatch(logout());
-            }
-        });
-        return unscubscribe;
-    }, []);
+    if (user) {
+        console.log(`access user from App ${user}`);
+    }
+    // useEffect(() => {
+    //     const unscubscribe = onAuthStateChanged(auth, (userAuth) => {
+    //         if (userAuth) {
+    //             console.log(userAuth);
+    //             dispatch(
+    //                 login({
+    //                     uid: userAuth.uid,
+    //                     email: userAuth.email,
+    //                 })
+    //             );
+    //         } else {
+    //             console.log("user is signed out ");
+    //             dispatch(logout());
+    //         }
+    //     });
+    //     return unscubscribe;
+    // }, []);
 
     return (
         <div className='App'>
@@ -44,11 +47,11 @@ function App() {
                             <Route path='/profile'>
                                 <ProfileScreen />
                             </Route>
-                            <Route exact path='/'>
-                                <HomeScreen />
-                            </Route>
                             <Route exact path='/movie/:id'>
                                 <MovieScreen />
+                            </Route>
+                            <Route exact path='/'>
+                                <HomeScreen />
                             </Route>
                         </>
                     )}

@@ -4,6 +4,8 @@ import Nav from "../components/Nav";
 import "./MovieScreen.css";
 import axiosInstance from "../axios";
 import requests from "../requests";
+import { login, logout, selectUser } from "../features/userSlice.js";
+import { useSelector } from "react-redux";
 
 function MovieScreen() {
     const { id } = useParams();
@@ -11,6 +13,16 @@ function MovieScreen() {
     const [actors, setActors] = useState([]);
     const [directors, setDirectors] = useState([]);
     const base_url = "https://image.tmdb.org/t/p/w400";
+
+    const user = useSelector(selectUser);
+
+    console.log(`access user from MovieScreen: ${user}`);
+
+    /* user in redux store */
+
+    // const user = useSelector(selectUser);
+    // console.log(`authUser is : ${user}`);
+    /*  */
 
     const getMovieDuration = (minutes) => {
         const hours = Math.floor(minutes / 60);
@@ -26,17 +38,17 @@ function MovieScreen() {
             );
             setMovie({ ...req.data });
         }
-        fetchData().then(() => console.log("movie data  is:", movie));
+        fetchData().then(() => console.log());
 
         /* fetchMovieCredits */
         async function fetchCredits() {
             const filmCreditsUrl = requests.fetchMovieDetails(id, "/credits");
             const req = await axiosInstance.get(filmCreditsUrl);
-            console.log(req.data);
+            // console.log(req.data);
             let AllDirectors = getDirectors(req.data.crew);
             let principalDirectors = getFirstNthObjects(AllDirectors, 2);
             setDirectors([...principalDirectors]);
-            console.log("Principal directors are : ", directors);
+            // console.log("Principal directors are : ", directors);
             // setMovieCredits(req.data);
             // console.log(`movie credits is ${movieCredits}`);
             let fetchedActors = [];

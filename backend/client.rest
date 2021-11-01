@@ -10,6 +10,6 @@ POST http://localhost:5000/users/login
 content-type: application/json
 
 {
-    "name": "kamal",
-    "password": "kamal123456"
+    "email": "noha@gmail.com",
+    "password": "noha123456"
 }

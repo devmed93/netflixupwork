@@ -4,18 +4,23 @@ const auth = (req, res, registeredUsers) => {
     if (req.session.isAuth) {
         console.log("you are already signed in");
     }
-    const wantLoginUser = { name: req.body.name, password: req.body.password };
+    const wantLoginUser = {
+        email: req.body.email,
+        password: req.body.password,
+    };
     console.log(wantLoginUser);
     const user = registeredUsers.find(
         (userItem) =>
-            userItem.name === wantLoginUser.name &&
+            userItem.email === wantLoginUser.email &&
             userItem.password === wantLoginUser.password
     );
+    console.log(user);
     if (user) {
         req.session.isAuth = true;
-        res.send(`user ${user.name} logged in successfully`);
+        // res.send(`user ${user.email} logged in successfully`);
+        res.json(user);
     } else {
-        res.send("wrong credentials");
+        res.json({ error: "wrong credentials" });
     }
 };
 

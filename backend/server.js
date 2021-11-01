@@ -13,9 +13,9 @@ app.use(express.json());
 const netflixSession = session({
     secret: "ssshhh it's a secret!",
     resave: false,
-    saveUninitialized: false,
-    cookie: { maxAge: 5000 },
-    name: "Netflix-Session",
+    saveUninitialized: true,
+    cookie: { maxAge: 300000 },
+    name: "netflixsession",
     path: "/",
 });
 

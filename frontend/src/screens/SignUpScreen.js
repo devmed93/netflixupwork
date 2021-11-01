@@ -5,13 +5,18 @@ import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
 } from "firebase/auth";
-import userSlice from "../features/userSlice";
-
+// import userSlice from "../features/userSlice";
+import axios from "axios";
 // import auth from "../firebase";
+
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "../features/userSlice.js";
 
 const SignUpScreen = () => {
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
+    const dispatch = useDispatch();
+    const user = useSelector(selectUser);
 
     const register = (e) => {
         e.preventDefault();
@@ -32,7 +37,27 @@ const SignUpScreen = () => {
 
     const signIn = (e) => {
         e.preventDefault();
-        signInWithEmailAndPassword(
+        const checkedUser = {
+            email: emailRef.current.value,
+            password: passwordRef.current.value,
+        };
+        const testUser = {
+            email: "noha@gmail.com",
+            password: "noha123456",
+        };
+        axios
+            .post("http://localhost:5000/users/login", checkedUser)
+            .then((user) => user.data)
+            .then((userAuth) => {
+                dispatch(
+                    login({
+                        uid: userAuth.uid,
+                        email: userAuth.email,
+                    })
+                );
+            });
+
+        /* signInWithEmailAndPassword(
             auth,
             emailRef.current.value,
             passwordRef.current.value
@@ -40,15 +65,20 @@ const SignUpScreen = () => {
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
+                console.log("the user that just signed in is :", user);
                 alert(user.email);
                 // ...
+            .then((user) => user.data)
             })
             .catch((error) => {
                 alert(error.message);
             });
+ */
     };
 
-
+    if (user) {
+        console.log(`access user from SignupScreen ${user}`);
+    }
     return (
         <div className='signupScreen'>
             <form>

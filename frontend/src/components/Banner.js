@@ -19,7 +19,7 @@ function Banner() {
         fetchData();
     }, []);
 
-    console.log(movie);
+    // console.log(movie);
 
     const truncate = (str, n) => {
         return str?.length <= n ? str : str.substr(0, n) + "...";
