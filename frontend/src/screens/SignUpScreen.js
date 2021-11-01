@@ -41,20 +41,21 @@ const SignUpScreen = () => {
             email: emailRef.current.value,
             password: passwordRef.current.value,
         };
-        const testUser = {
-            email: "noha@gmail.com",
-            password: "noha123456",
-        };
+
         axios
             .post("http://localhost:5000/users/login", checkedUser)
             .then((user) => user.data)
             .then((userAuth) => {
-                dispatch(
-                    login({
-                        uid: userAuth.uid,
-                        email: userAuth.email,
-                    })
-                );
+                try {
+                    dispatch(
+                        login({
+                            uid: userAuth.uid,
+                            email: userAuth.email,
+                        })
+                    );
+                } catch (error) {
+                    alert("wrong credentials");
+                }
             });
 
         /* signInWithEmailAndPassword(

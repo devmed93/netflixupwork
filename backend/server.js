@@ -14,7 +14,7 @@ const netflixSession = session({
     secret: "ssshhh it's a secret!",
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 300000 },
+    cookie: { maxAge: 1000 * 60 * 10, httpOnly: true },
     name: "netflixsession",
     path: "/",
 });

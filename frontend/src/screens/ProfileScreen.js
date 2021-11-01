@@ -5,9 +5,13 @@ import { login, logout, selectUser } from "../features/userSlice.js";
 import { useSelector } from "react-redux";
 import { signOut } from "@firebase/auth";
 import auth from "../firebase";
-
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 const ProfileScreen = () => {
     const user = useSelector(selectUser);
+    const dispatch = useDispatch();
+    const history = useHistory();
+
     return (
         <div className='profileScreen'>
             <Nav />
@@ -49,9 +53,10 @@ const ProfileScreen = () => {
                     </div>
                     <button
                         className='signOut'
-                        onClick={() =>
-                            signOut(auth).then(() => alert("Sign Out sucess"))
-                        }>
+                        onClick={() => {
+                            dispatch(logout());
+                            history.push("/");
+                        }}>
                         Sign out
                     </button>
                 </div>
