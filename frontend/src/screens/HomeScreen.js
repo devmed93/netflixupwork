@@ -1,10 +1,16 @@
 import React from "react";
-import Nav from "../components/Nav";
-import "./HomeScreen.css";
+import { useDispatch } from "react-redux";
 import Banner from "../components/Banner";
-import requests from "../requests";
+import Nav from "../components/Nav";
 import Row from "../components/Row";
+import requests from "../requests";
+import "./HomeScreen.css";
+
 function HomeScreen() {
+    const dispatch = useDispatch();
+
+   
+
     return (
         <div className='homeScreen'>
             <Nav />

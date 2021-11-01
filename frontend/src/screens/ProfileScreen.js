@@ -1,12 +1,9 @@
 import React from "react";
-import Nav from "../components/Nav";
-import "./ProfileScreen.css";
-import { login, logout, selectUser } from "../features/userSlice.js";
-import { useSelector } from "react-redux";
-import { signOut } from "@firebase/auth";
-import auth from "../firebase";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import Nav from "../components/Nav";
+import { logout, selectUser } from "../features/userSlice.js";
+import "./ProfileScreen.css";
 const ProfileScreen = () => {
     const user = useSelector(selectUser);
     const dispatch = useDispatch();
@@ -23,7 +20,7 @@ const ProfileScreen = () => {
                     className='profileScreen-avatar'
                 />
                 <div className='profileScreen-body'>
-                    <h4 className='userEmail'>{user.email}</h4>
+                    <h4 className='userEmail'>{user?.email}</h4>
                     <h3 className='current-plan'>
                         Plans (Current plan : premium)
                     </h3>

@@ -1,16 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import "./SignUpScreen.css";
-import auth from "../firebase";
-import {
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-} from "firebase/auth";
 // import userSlice from "../features/userSlice";
 import axios from "axios";
+import React, { useRef } from "react";
 // import auth from "../firebase";
-
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout, selectUser } from "../features/userSlice.js";
+import { login, selectUser } from "../features/userSlice.js";
+import "./SignUpScreen.css";
 
 const SignUpScreen = () => {
     const emailRef = useRef(null);
@@ -20,19 +14,7 @@ const SignUpScreen = () => {
 
     const register = (e) => {
         e.preventDefault();
-        createUserWithEmailAndPassword(
-            auth,
-            emailRef.current.value,
-            passwordRef.current.value
-        )
-            .then((userCredential) => {
-                // Signed in
-                const user = userCredential.user;
-                alert(user.email);
-            })
-            .catch((error) => {
-                alert(error.message);
-            });
+        //register logic
     };
 
     const signIn = (e) => {
@@ -41,7 +23,7 @@ const SignUpScreen = () => {
             email: emailRef.current.value,
             password: passwordRef.current.value,
         };
-
+        
         axios
             .post("http://localhost:5000/users/login", checkedUser)
             .then((user) => user.data)
@@ -49,6 +31,13 @@ const SignUpScreen = () => {
                 try {
                     dispatch(
                         login({
+                            uid: userAuth.uid,
+                            email: userAuth.email,
+                        })
+                    );
+                    localStorage.setItem(
+                        "user",
+                        JSON.stringify({
                             uid: userAuth.uid,
                             email: userAuth.email,
                         })

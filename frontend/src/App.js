@@ -1,23 +1,21 @@
 import React, { useEffect } from "react";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import LoginScreen from "./screens/LoginScreen.js";
+import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
+import { selectUser } from "./features/userSlice.js";
 import HomeScreen from "./screens/HomeScreen";
-import auth from "./firebase.js";
-import { onAuthStateChanged } from "firebase/auth";
-import { useDispatch } from "react-redux";
-import { login, logout, selectUser } from "./features/userSlice.js";
-import { useSelector } from "react-redux";
-import ProfileScreen from "./screens/ProfileScreen.js";
+import LoginScreen from "./screens/LoginScreen.js";
 import MovieScreen from "./screens/MovieScreen.js";
+import ProfileScreen from "./screens/ProfileScreen.js";
 
 function App() {
     const user = useSelector(selectUser);
     const dispatch = useDispatch();
 
+    // const user = { uid: 1, email: "mohammed@gmail.com" };
     if (user) {
         console.log(`access user from App ${user}`);
-    }
+    } 
     // useEffect(() => {
     //     const unscubscribe = onAuthStateChanged(auth, (userAuth) => {
     //         if (userAuth) {
@@ -35,6 +33,8 @@ function App() {
     //     });
     //     return unscubscribe;
     // }, []);
+
+    useEffect(() => {}, []);
 
     return (
         <div className='App'>
