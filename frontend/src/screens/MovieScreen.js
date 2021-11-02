@@ -9,7 +9,8 @@ import { useSelector } from "react-redux";
 
 function MovieScreen() {
     const { id } = useParams();
-    const [movie, setMovie] = useState(null);
+    console.log(`movie id is ${id}`);
+    const [movie, setMovie] = useState();
     const [actors, setActors] = useState([]);
     const [directors, setDirectors] = useState([]);
     const base_url = "https://image.tmdb.org/t/p/w400";
@@ -103,17 +104,20 @@ function MovieScreen() {
                             <div className='movie-infos'>
                                 <h1 className='movie-title'>{movie?.title}</h1>
                                 <div className='movie-release'>
+                                    {/* piece of to be fixed */}
                                     <div className='movie-release-year'>
-                                        {new Date(
-                                            movie?.release_date
-                                        ).getFullYear()}
+                                        {new Date(movie?.release_date)
+                                            .getFullYear()
+                                            .toString()}
                                     </div>
+                                    {/* piece of to be fixed */}
                                     <div className='movie-duration'>
                                         {getMovieDuration(movie?.runtime)}
                                     </div>
                                     <div className='movie-age'>16+</div>
                                 </div>
                             </div>
+
                             <div className='movie-rating'>
                                 <span className='rating'>
                                     {movie?.vote_average?.toFixed(1)}
