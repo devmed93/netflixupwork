@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import { selectUser } from "./features/userSlice.js";
+import { login, selectUser } from "./features/userSlice.js";
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen.js";
 import MovieScreen from "./screens/MovieScreen.js";
@@ -13,28 +13,9 @@ function App() {
     const dispatch = useDispatch();
 
     // const user = { uid: 1, email: "mohammed@gmail.com" };
-    if (user) {
-        console.log(`access user from App ${user}`);
-    } 
-    // useEffect(() => {
-    //     const unscubscribe = onAuthStateChanged(auth, (userAuth) => {
-    //         if (userAuth) {
-    //             console.log(userAuth);
-    //             dispatch(
-    //                 login({
-    //                     uid: userAuth.uid,
-    //                     email: userAuth.email,
-    //                 })
-    //             );
-    //         } else {
-    //             console.log("user is signed out ");
-    //             dispatch(logout());
-    //         }
-    //     });
-    //     return unscubscribe;
-    // }, []);
-
-    useEffect(() => {}, []);
+    // if (user) {
+    //     console.log(`access user from App ${user}`);
+    // }
 
     return (
         <div className='App'>
