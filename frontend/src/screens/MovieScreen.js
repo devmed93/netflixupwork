@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 
 function MovieScreen() {
     const { id } = useParams();
-    console.log(`movie id is ${id}`);
+    // console.log(`movie id is ${id}`);
     const [movie, setMovie] = useState();
     const [actors, setActors] = useState([]);
     const [directors, setDirectors] = useState([]);
@@ -17,7 +17,7 @@ function MovieScreen() {
 
     const user = useSelector(selectUser);
 
-    console.log(`access user from MovieScreen: ${user}`);
+    // console.log(`access user from MovieScreen: ${user}`);
 
     /* user in redux store */
 
