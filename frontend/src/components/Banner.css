@@ -9,27 +9,25 @@
 
     display: flex;
     align-items: center;
-
 }
 
 .banner-content {
     margin-left: 1.9em;
     /* margin-top: 4.8em; */
 }
-.banner-content>*{
-	margin:.3em 0;
+.banner-content > * {
+    margin: 0.3em 0;
 }
 
 .banner-title {
-    font-size: 2.6rem;
+    font-size: 2.2rem;
     font-weight: 500;
     padding-bottom: 0.3rem;
-
 }
 .banner-description {
     width: 15rem;
     line-height: 1.5;
-	letter-spacing: .05em;
+    letter-spacing: 0.05em;
     padding-top: 1rem;
     font-size: 0.8rem;
     min-width: 360px;
@@ -63,7 +61,22 @@
     border-radius: 0.2em;
 }
 .banner-button:hover {
-	background-color: #e6e6e6;
-	color: #111;
-	transition: all 0.2s;
+    background-color: #e6e6e6;
+    color: #111;
+    transition: all 0.2s;
+}
+
+/* Emphasize the banner content  */
+
+.banner-content {
+    width: 400px;
+
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 1),70%,transparent);
+    padding-inline: 1em;
+    height: 100%;
+    margin-left: 0;
+    display: grid;
+    place-content: center;
+}
+.banner-title {
 }
