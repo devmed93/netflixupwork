@@ -18,6 +18,12 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
         fetchMoviesList();
     }, [fetchUrl]);
 
+    const addMovie = (e) => {
+        // const movie = e.target.getAttribute("data-movie");
+
+        console.log(e.target.dataset.movie.title);
+    };
+
     // console.log(movies);
     return (
         <div className='row'>
@@ -27,24 +33,29 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
                     !movie
                         ? "loading..."
                         : (movie.poster_path || movie.backdrop_path) && (
-                              <img
-                                  key={movie.id}
-                                  className={`row-poster ${
-                                      isLargeRow && "row-posterLarge"
-                                  }`}
-                                  src={`${base_url}${
-                                      (isLargeRow
-                                          ? movie.poster_path
-                                          : movie.backdrop_path) ||
-                                      movie?.poster_path
-                                  }`}
-                                  alt={movie.name}
-                                  onClick={() =>
-                                      history.push(`/movie/${movie.id}`)
-                                  }
-                              />
+                              <React.Fragment key={movie.id}>
+                                  <img
+                                      className={`row-poster ${
+                                          isLargeRow && "row-posterLarge"
+                                      }`}
+                                      src={`${base_url}${
+                                          (isLargeRow
+                                              ? movie.poster_path
+                                              : movie.backdrop_path) ||
+                                          movie?.poster_path
+                                      }`}
+                                      alt={movie.name}
+                                      onClick={() =>
+                                          history.push(`/movie/${movie.id}`)
+                                      }
+                                  />
+                                  <i
+                                      className='far fa-plus-square fa-lg'
+                                      onClick={() => {
+                                          console.log(movie);
+                                      }}></i>
+                              </React.Fragment>
                           )
-                          
                 )}
             </div>
         </div>

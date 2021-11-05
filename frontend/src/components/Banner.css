@@ -71,7 +71,12 @@
 .banner-content {
     width: 400px;
 
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 1),70%,transparent);
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 1),
+        70%,
+        transparent
+    );
     padding-inline: 1em;
     height: 100%;
     margin-left: 0;

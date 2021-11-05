@@ -6,10 +6,22 @@ GET http://localhost:5000/users
 
 ###
 
+GET http://localhost:5000/movies
+
+###
+POST http://localhost:5000/movies
+content-type: application/json
+
+{
+    "id": "6",
+    "title": "The incredibles"
+}
+
+###
 POST http://localhost:5000/users/login
 content-type: application/json
 
 {
-    "email": "noha@gmail.com",
+    "email": "noha@gmmail.com",
     "password": "noha123456"
 }

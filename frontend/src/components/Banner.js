@@ -3,21 +3,41 @@ import "./Banner.css";
 import axiosInstance from "../axios";
 import requests from "../requests";
 
+import { useDispatch, useSelector } from "react-redux";
+import { registerMovie, selectMovie } from "../features/movieSlice";
+
 function Banner() {
     const [movie, setMovie] = useState([]);
+
+    const movieFromStore = useSelector(selectMovie);
+    const dispatch = useDispatch();
+
     useEffect(() => {
         async function fetchData() {
             const req = await axiosInstance.get(requests.fetchNetflixOriginals);
-            setMovie(
-                req.data.results[
-                    Math.floor(Math.random() * req.data.results.length - 1)
-                ]
+            let randomMovieIndex = Math.floor(
+                Math.random() * (req.data.results.length - 1)
             );
-            console.log(`random movie : ${movie}`);
-            return req;
+            console.log(`movierandom index is ${randomMovieIndex}`);
+            let randomMovie = req.data.results[randomMovieIndex];
+            setMovie(randomMovie);
+            console.log("random movie", randomMovie);
+            // return req;
         }
-        // return req;
-        fetchData().then((req) => console.log(req.data));
+
+        fetchData();
+
+        // if (!movieFromStore) {
+        //     fetchData().then(() => {
+        //         try {
+        //             dispatch(registerMovie({ ...movie }));
+        //         } catch (error) {
+        //             alert(`unable dispatch registerMovie action to the store`);
+        //         }
+        //     });
+        // } else {
+        //     setMovie({ ...movieFromStore });
+        // }
     }, []);
 
     // console.log(movie);

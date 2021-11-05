@@ -1,0 +1,15 @@
+.myList {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+
+    .emptyListMessage {
+        color: orange;
+        // width: 80%;
+        width: 500px;
+        max-width: 80%;
+        text-align: center;
+        margin: 0 auto;
+    }
+}

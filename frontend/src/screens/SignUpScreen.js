@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useRef } from "react";
 // import auth from "../firebase";
 import { useDispatch, useSelector } from "react-redux";
+import { configStore } from "../app/store.js";
 import { login, selectUser } from "../features/userSlice.js";
 import "./SignUpScreen.css";
 
@@ -23,7 +24,7 @@ const SignUpScreen = () => {
             email: emailRef.current.value,
             password: passwordRef.current.value,
         };
-        
+
         axios
             .post("http://localhost:5000/users/login", checkedUser)
             .then((user) => user.data)
@@ -31,13 +32,6 @@ const SignUpScreen = () => {
                 try {
                     dispatch(
                         login({
-                            uid: userAuth.uid,
-                            email: userAuth.email,
-                        })
-                    );
-                    localStorage.setItem(
-                        "user",
-                        JSON.stringify({
                             uid: userAuth.uid,
                             email: userAuth.email,
                         })

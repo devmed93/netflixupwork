@@ -1,5 +1,6 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import userReducer from "../features/userSlice";
+import movieReducer from "../features/movieSlice";
 
 /* redux persis imports */
 import storage from "redux-persist/lib/storage";
@@ -14,16 +15,23 @@ import {
     PURGE,
     REGISTER,
 } from "redux-persist";
+import myMovieListSlice from "../features/myMovieListSlice";
 const persistConfig = {
     key: "root",
     storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, userReducer);
+const reducer = combineReducers({
+    user: userReducer,
+    movie: movieReducer,
+    myMovieList: myMovieListSlice,
+});
+
+const persistedReducer = persistReducer(persistConfig, reducer);
 
 export const configStore = () => {
     let store = configureStore({
-        reducer: { user: persistedReducer },
+        reducer: persistedReducer,
         middleware: getDefaultMiddleware({
             serializableCheck: {
                 ignoredActions: [

@@ -40,3 +40,6 @@
 .row-posterLarge {
     max-height: 230px;
 }
+.fa-plus-square {
+    cursor: pointer;
+}
