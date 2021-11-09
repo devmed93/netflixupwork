@@ -14,7 +14,7 @@ function MoviePoster({ movie, isLargeRow = false }) {
     useEffect(() => {
         const fetchMyMoviesList = async () => {
             axios
-                .get("http://localhost:5000/movies")
+                .get("http://localhost:5000/movies/list")
                 .then((results) => results?.data)
                 .then((data) => {
                     data.find(
@@ -52,7 +52,10 @@ function MoviePoster({ movie, isLargeRow = false }) {
                     className='fa fa-plus-circle fa-5x '
                     onClick={() => {
                         setIsMovieAdded(true);
-                        axios.post("http://localhost:5000/movies", movie);
+                        axios.post(
+                            "http://localhost:5000/movies/list/add",
+                            movie
+                        );
                     }}></i>
             ) : (
                 <i
@@ -60,7 +63,7 @@ function MoviePoster({ movie, isLargeRow = false }) {
                     onClick={() => {
                         setIsMovieAdded(false);
                         axios.post(
-                            " http://localhost:5000/movies/remove",
+                            " http://localhost:5000/movies/list/remove",
                             movie
                         );
                     }}></i>

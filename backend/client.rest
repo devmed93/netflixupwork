@@ -6,23 +6,23 @@ GET http://localhost:5000/users
 
 ###
 
-GET http://localhost:5000/movies
+GET http://localhost:5000/movies/list
 
 ###
-POST http://localhost:5000/movies
+POST http://localhost:5000/movies/list/add
 content-type: application/json
 
 {
-    "id": "8",
-    "title": "Finch"
+    "id": 9,
+    "title": "Titans"
 }
 ###
 
-POST http://localhost:5000/movies/remove
+POST http://localhost:5000/movies/list/remove
 content-type: application/json
 
  {
-    "id": 3,
+    "id": 8,
     "title" : "movie 4"
     }
 

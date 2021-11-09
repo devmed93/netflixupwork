@@ -16,14 +16,15 @@ router.get("/", async (req, res, next) => {
     let moviesList;
     try {
         moviesList = await getMyMoviesList("./myMoviesListData.json");
+        console.log(moviesList);
     } catch (error) {
-        console.log("Could not get the movieList data");
+        console.log("Could not get the moviesList data");
     }
 
     res.json(moviesList);
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/add", async (req, res, next) => {
     let movie = { ...req.body };
     let myMoviesList;
 

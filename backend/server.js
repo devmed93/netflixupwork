@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const userRouter = require("./routes/users");
-const movieRouter = require("./routes/movies");
+const moviesListRouter = require("./routes/moviesList");
 
 const session = require("express-session");
 
@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/users", userRouter);
-app.use("/movies", movieRouter);
+app.use("/movies/list", moviesListRouter);
 
 app.listen(port, "localhost", () => {
     console.log(`server listening at port : ${port}`);

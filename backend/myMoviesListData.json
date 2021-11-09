@@ -1,1 +1,18 @@
-[{"adult":false,"backdrop_path":"/3G6wET9eLvYn3aoIj8NfQFhpYEB.jpg","genre_ids":[28,12,878,14],"id":524434,"original_language":"en","original_title":"Eternals","overview":"The Eternals are a team of ancient aliens who have been living on Earth in secret for thousands of years. When an unexpected tragedy forces them out of the shadows, they are forced to reunite against mankind’s most ancient enemy, the Deviants.","popularity":3658.663,"poster_path":"/6AdXwFTRTAzggD2QUTt5B7JFGKL.jpg","release_date":"2021-11-03","title":"Eternals","video":false,"vote_average":7.1,"vote_count":560},{"poster_path":"/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg","video":false,"id":580489,"overview":"After finding a host body in investigative reporter Eddie Brock, the alien symbiote must face a new enemy, Carnage, the alter ego of serial killer Cletus Kasady.","release_date":"2021-09-30","vote_count":1699,"adult":false,"backdrop_path":"/lNyLSOKMMeUPr1RsL4KcRuIXwHt.jpg","vote_average":6.8,"genre_ids":[878,28,12],"title":"Venom: Let There Be Carnage","original_language":"en","original_title":"Venom: Let There Be Carnage","popularity":5806.65,"media_type":"movie"}]
+[
+    {
+        "adult": false,
+        "backdrop_path": "/5hNcsnMkwU2LknLoru73c76el3z.jpg",
+        "genre_ids": [35, 18, 10749],
+        "id": 19404,
+        "original_language": "hi",
+        "original_title": "दिलवाले दुल्हनिया ले जायेंगे",
+        "overview": "Raj is a rich, carefree, happy-go-lucky second generation NRI. Simran is the daughter of Chaudhary Baldev Singh, who in spite of being an NRI is very strict about adherence to Indian values. Simran has left for India to be married to her childhood fiancé. Raj leaves for India with a mission at his hands, to claim his lady love under the noses of her whole family. Thus begins a saga.",
+        "popularity": 25.359,
+        "poster_path": "/2CAL2433ZeIihfX1Hb2139CX0pW.jpg",
+        "release_date": "1995-10-20",
+        "title": "Dilwale Dulhania Le Jayenge",
+        "video": false,
+        "vote_average": 8.7,
+        "vote_count": 3210
+    }
+]
