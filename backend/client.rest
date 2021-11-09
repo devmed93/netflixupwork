@@ -13,8 +13,8 @@ POST http://localhost:5000/movies
 content-type: application/json
 
 {
-    "id": "6",
-    "title": "The incredibles"
+    "id": "8",
+    "title": "Finch"
 }
 
 ###

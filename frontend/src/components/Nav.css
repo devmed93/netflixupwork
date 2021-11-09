@@ -28,3 +28,14 @@ img {
     width: 30px;
     cursor: pointer;
 }
+
+.nav-myList {
+    height: 100%;
+    background-color: rgba(17, 17, 17, 0.712);
+    color: whitesmoke;
+    margin-top: 1.1em;
+    margin-left: 25em;
+    padding:0 1em;
+    text-decoration: none;
+    border-radius: 0.2em;
+}

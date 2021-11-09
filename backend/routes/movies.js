@@ -22,7 +22,7 @@ router.get("/", async (req, res, next) => {
 });
 
 router.post("/", async (req, res, next) => {
-    let movie = { id: req.body.id, title: req.body.title };
+    let movie = { ...req.body };
     let myMoviesList;
 
     try {

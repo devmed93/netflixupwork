@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "./Nav.css";
 
 function Nav() {
@@ -30,7 +31,9 @@ function Nav() {
                     alt='netflix logo'
                     onClick={() => history.push("/")}
                 />
-
+                <Link to='/mylist' className='nav-myList'>
+                    My list
+                </Link>
                 <img
                     className='nav-avatar'
                     src='https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png'

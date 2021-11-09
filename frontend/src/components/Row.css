@@ -24,22 +24,3 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
 }
-.row-poster {
-    object-fit: contain;
-    max-height: 100px;
-    margin-right: 0.6em;
-    width: 100%;
-    transition: transform 0.3s;
-    cursor: pointer;
-}
-
-.row-poster:hover {
-    transform: scale(1.08);
-}
-
-.row-posterLarge {
-    max-height: 230px;
-}
-.fa-plus-square {
-    cursor: pointer;
-}

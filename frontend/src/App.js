@@ -34,6 +34,9 @@ function App() {
                             <Route exact path='/movie/:id'>
                                 <MovieScreen />
                             </Route>
+                            <Route exact path='/mylist'>
+                                <MyList />
+                            </Route>
                             <Route exact path='/'>
                                 <HomeScreen />
                             </Route>
