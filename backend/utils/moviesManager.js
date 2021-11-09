@@ -22,4 +22,20 @@ const addToMyMoviesList = async (file, movie) => {
     }
 };
 
-module.exports = { getMyMoviesList, addToMyMoviesList };
+const removeFromMyMoviesList = async (file, movie) => {
+    let moviesList;
+    let filteredMoviesList;
+    try {
+        moviesList = await getMyMoviesList("./myMoviesListData.json");
+        movieToRemoveIndex = moviesList.findIndex(
+            (movieFromMyList) => movieFromMyList.id === movie.id
+        );
+        moviesList.splice(movieToRemoveIndex, 1);
+        await jsonfile.writeFile("./myMoviesListData.json", moviesList);
+        return moviesList;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+module.exports = { getMyMoviesList, addToMyMoviesList, removeFromMyMoviesList };

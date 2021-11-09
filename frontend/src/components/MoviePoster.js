@@ -55,7 +55,15 @@ function MoviePoster({ movie, isLargeRow = false }) {
                         axios.post("http://localhost:5000/movies", movie);
                     }}></i>
             ) : (
-                <i className='fas fa-check-circle'></i>
+                <i
+                    className='fas fa-check-circle'
+                    onClick={() => {
+                        setIsMovieAdded(false);
+                        axios.post(
+                            " http://localhost:5000/movies/remove",
+                            movie
+                        );
+                    }}></i>
             )}
         </div>
     );

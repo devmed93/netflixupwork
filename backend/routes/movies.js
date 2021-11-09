@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const cors = require("cors");
+const jsonfile = require("jsonfile");
 const {
     getMyMoviesList,
     addToMyMoviesList,
+    removeFromMyMoviesList,
 } = require("../utils/moviesManager");
 
 const app = express();
@@ -32,6 +34,18 @@ router.post("/", async (req, res, next) => {
         );
     } catch (error) {}
     res.json(myMoviesList);
+});
+
+router.post("/remove", async (req, res, next) => {
+    let movie = { ...req.body };
+    let filmList;
+    try {
+        filmList = await removeFromMyMoviesList(
+            "./myMoviesListData.json",
+            movie
+        );
+    } catch (error) {}
+    res.json(filmList);
 });
 
 module.exports = router;

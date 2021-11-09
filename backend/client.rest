@@ -16,6 +16,15 @@ content-type: application/json
     "id": "8",
     "title": "Finch"
 }
+###
+
+POST http://localhost:5000/movies/remove
+content-type: application/json
+
+ {
+    "id": 3,
+    "title" : "movie 4"
+    }
 
 ###
 POST http://localhost:5000/users/login
