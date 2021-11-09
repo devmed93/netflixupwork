@@ -1,4 +1,5 @@
 const jsonfile = require("jsonfile");
+const { requests, axiosInstance } = require("./requests");
 
 const getMyMoviesList = async (file) => {
     let movies;
@@ -38,4 +39,21 @@ const removeFromMyMoviesList = async (file, movie) => {
     }
 };
 
-module.exports = { getMyMoviesList, addToMyMoviesList, removeFromMyMoviesList };
+const getMoviesByGenre = async (genre) => {
+    let movies;
+    try {
+        movies = await axiosInstance
+            .get(genre)
+            .then((response) => response.data.results);
+    } catch (error) {
+        console.log(error);
+    }
+    return movies;
+};
+
+module.exports = {
+    getMyMoviesList,
+    addToMyMoviesList,
+    removeFromMyMoviesList,
+    getMoviesByGenre,
+};

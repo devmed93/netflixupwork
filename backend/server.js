@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
+
 const userRouter = require("./routes/users");
+const moviesRouter = require("./routes/movies");
 const moviesListRouter = require("./routes/moviesList");
 
 const session = require("express-session");
@@ -27,13 +29,17 @@ app.use(netflixSession);
 
 /*  */
 
-app.get("/", (req, res) => {
-    console.log(req.session);
+app.get("/", async (req, res) => {
+  
+    console.log(req.sesison);
     res.send("server home page");
 });
 
 app.use("/users", userRouter);
 app.use("/movies/list", moviesListRouter);
+app.use("/movies", moviesRouter);
+
+
 
 app.listen(port, "localhost", () => {
     console.log(`server listening at port : ${port}`);
