@@ -28,8 +28,8 @@ router.get("/:genre/random", async (req, res) => {
     let randomMovie;
     try {
         randomMovie = await getRandomMovie(requests[genre]);
-        await console.log(randomMovie);
     } catch (error) {}
+    console.log(genre);
     res.json(randomMovie);
 });
 

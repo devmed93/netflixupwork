@@ -34,7 +34,7 @@ GET http://localhost:5000/movies/netflixOriginals
 
 ####
 
-GET http://localhost:5000/movies/action/random
+GET http://localhost:5000/movies/netflixOriginals/random
 
 
 ####
