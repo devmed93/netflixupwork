@@ -14,7 +14,7 @@ const requests = {
     comedy: `/discover/movie?api_key=${API_KEY}&with_genres=35`,
     horror: `/discover/movie?api_key=${API_KEY}&with_genres=27`,
     romance: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
-    documentaries: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
+    documentary: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
     movieDetails: (id, credits) => {
         const creditsParameter = credits ? "/credits" : "";
         return `/movie/${id}${credits}?api_key=${API_KEY}`;
