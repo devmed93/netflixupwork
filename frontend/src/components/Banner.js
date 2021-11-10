@@ -6,11 +6,12 @@ import axiosInstance from "../axios";
 import { useDispatch, useSelector } from "react-redux";
 import { registerMovie, selectMovie } from "../features/movieSlice";
 import useAxios from "axios-hooks";
+const Spinner = require("react-spinkit");
 
 function Banner() {
     const [movie, setMovie] = useState([]);
     const [{ data, loading, error }, refetch] = useAxios(
-        "http://localhost:5000/movies/netflixOriginals"
+        "http://localhost:5000/movies/netflixOriginals/random"
     );
     const movieFromStore = useSelector(selectMovie);
     const dispatch = useDispatch();
@@ -19,16 +20,7 @@ function Banner() {
         async function fetchData() {
             if (!loading) {
                 try {
-                    let randomMovieIndex;
-                    randomMovieIndex = Math.floor(
-                        Math.random() * ((await data?.length) - 1)
-                    );
-                    console.log(`movierandom index is ${randomMovieIndex}`);
-                    let randomMovie = data[randomMovieIndex];
-                    setMovie(randomMovie);
-                    console.log("random movie", randomMovie);
-
-                    // return req;
+                    setMovie(data);
                 } catch (error) {
                     console.log(error);
                 }
@@ -48,9 +40,7 @@ function Banner() {
         // } else {
         //     setMovie({ ...movieFromStore });
         // }
-    }, [loading]);
-
-    // console.log(movie);
+    }, [loading, data]);
 
     const truncate = (str, n) => {
         return str?.length <= n ? str : str.substr(0, n) + "...";
@@ -58,32 +48,44 @@ function Banner() {
 
     return (
         <div>
-            {/* <header
-                className='banner'
-                style={{
-                    backgroundSize: "cover",
-                    backgroundImage:
-                        movie?.backdrop_path &&
-                        `url(
+            {loading ? (
+                <div className='spinner-container'>
+                    <Spinner
+                        name='ball-clip-rotate'
+                        color='white'
+                        className='spinner'
+                    />
+                </div>
+            ) : (
+                <header
+                    className='banner'
+                    style={{
+                        backgroundSize: "cover",
+                        backgroundImage:
+                            movie?.backdrop_path &&
+                            `url(
                         "https://image.tmdb.org/t/p/original/${movie?.backdrop_path}"
                     )`,
 
-                    backgroundPosition: "center",
-                }}>
-                <div className='banner-content'>
-                    <h1 className='banner-title'>
-                        {movie?.title || movie?.name || movie?.original_name}
-                    </h1>
-                    <div className='banner-buttons'>
-                        <button className='banner-button'>play</button>
-                        <button className='banner-button'>my list</button>
+                        backgroundPosition: "center",
+                    }}>
+                    <div className='banner-content'>
+                        <h1 className='banner-title'>
+                            {movie?.title ||
+                                movie?.name ||
+                                movie?.original_name}
+                        </h1>
+                        <div className='banner-buttons'>
+                            <button className='banner-button'>play</button>
+                            <button className='banner-button'>my list</button>
+                        </div>
+                        <p className='banner-description'>
+                            {truncate(`${movie?.overview}`, 150)}
+                        </p>
                     </div>
-                    <p className='banner-description'>
-                        {truncate(`${movie?.overview}`, 150)}
-                    </p>
-                </div>
-                <div className='banner-fadeBottom' />
-            </header> */}
+                    <div className='banner-fadeBottom' />
+                </header>
+            )}
         </div>
     );
 }
