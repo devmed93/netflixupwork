@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
+import Banner from "./components/Banner";
 import MyList from "./components/MyList";
 import { login, selectUser } from "./features/userSlice.js";
 import HomeScreen from "./screens/HomeScreen";
@@ -23,7 +24,8 @@ function App() {
             {/* <MyList /> */}
 
             <Router>
-                <Switch>
+                <Banner />
+                {/* <Switch>
                     {!user ? (
                         <LoginScreen />
                     ) : (
@@ -42,7 +44,7 @@ function App() {
                             </Route>
                         </>
                     )}
-                </Switch>
+                </Switch> */}
             </Router>
         </div>
     );

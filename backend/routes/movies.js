@@ -3,7 +3,7 @@ const axios = require("axios");
 const router = express.Router();
 const cors = require("cors");
 const jsonfile = require("jsonfile");
-const { getMoviesByGenre } = require("../utils/moviesManager");
+const { getMoviesByGenre, getRandomMovie } = require("../utils/moviesManager");
 const { requests } = require("../utils/requests");
 
 const app = express();
@@ -21,6 +21,16 @@ router.get("/:genre", async (req, res, next) => {
     }
 
     res.json(movies);
+});
+
+router.get("/:genre/random", async (req, res) => {
+    const genre = req.params.genre;
+    let randomMovie;
+    try {
+        randomMovie = await getRandomMovie(requests[genre]);
+        await console.log(randomMovie);
+    } catch (error) {}
+    res.json(randomMovie);
 });
 
 module.exports = router;

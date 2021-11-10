@@ -51,9 +51,19 @@ const getMoviesByGenre = async (genre) => {
     return movies;
 };
 
+const getRandomMovie = async (genre) => {
+    let data;
+    try {
+        data = await getMoviesByGenre(genre);
+        console.log(requests[genre]);
+    } catch (error) {}
+    return data[Math.floor(Math.random() * ((await data?.length) - 1))];
+};
+
 module.exports = {
     getMyMoviesList,
     addToMyMoviesList,
     removeFromMyMoviesList,
     getMoviesByGenre,
+    getRandomMovie,
 };

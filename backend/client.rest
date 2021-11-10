@@ -34,6 +34,11 @@ GET http://localhost:5000/movies/netflixOriginals
 
 ####
 
+GET http://localhost:5000/movies/action/random
+
+
+####
+
 POST http://localhost:5000/users/login
 content-type: application/json
 
