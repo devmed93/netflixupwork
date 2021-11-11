@@ -20,6 +20,7 @@
     object-fit: contain;
 
     position: fixed;
+    overflow-x: hidden;
 }
 .movie-container {
     background-color: #020202e7;
@@ -31,9 +32,11 @@
     display: flex;
     margin: 0 auto;
     border-radius: 3px;
+    animation: fadein 0.8s;
 }
 .movie-container > * {
     margin-inline: 1.6em;
+    animation: fadein 0.8s;
 }
 
 .movie-poster {
@@ -150,6 +153,11 @@
     width: 110%;
 }
 
+.spinner-container {
+    background-color: transparent;
+    
+}
+
 /* =======Media Queries====== */
 @media all and (max-width: 490px) {
     .movieScreen {
@@ -233,5 +241,15 @@
     }
     .movie-casting {
         margin-top: 1em;
+    }
+}
+
+/* FadeIn Animation */
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

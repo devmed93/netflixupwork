@@ -77,19 +77,6 @@ const getMovieDetailsById = async (id, credits=false) => {
 };
 
 
-// const getMovieCreditsById = async (id) => {
-//     let movieCredits;
-//     let movieDetailsUrl = requests.movieDetails(id, "/credits");
-//     console.log(movieDetailsUrl);
-//     try {
-//         movieCredits = await axiosInstance
-//             .get(`${movieDetailsUrl}&append_to_response=images`)
-//             .then((response) => response.data);
-//     } catch (error) {
-//         console.log(error);
-//     }
-//     return movieCredits;
-// };
 
 module.exports = {
     getMyMoviesList,

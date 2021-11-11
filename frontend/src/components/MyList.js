@@ -8,12 +8,17 @@ import Nav from "./Nav";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import useAxios from "axios-hooks";
+import Spinner from "react-spinkit";
 
 function MyList() {
-    const emptyListMessage = "Add movies to your list from the homescreen";
+    const emptyListMessage = <Link to='/'>Add movies from the HomeScreen</Link>;
     const movieList = useSelector(selectmyMovieList);
     const [myList, setMyList] = useState([]);
+    const [{ data, loading, error }, refetch] = useAxios(
+        "http://localhost:5000/movies/list"
+    );
     const base_url = "https://image.tmdb.org/t/p/w300";
 
     const dispatch = useDispatch();
@@ -21,19 +26,31 @@ function MyList() {
 
     useEffect(() => {
         const fetchMyMoviesList = async () => {
-            const { data } = await axios.get(
-                "http://localhost:5000/movies/list"
-            );
-            await setMyList(data);
+            if (!loading) {
+                try {
+                    setMyList(data);
+                } catch (error) {
+                    console.log(error);
+                }
+            }
         };
         fetchMyMoviesList();
-    }, []);
+    }, [loading, data]);
 
     return (
         <div className='myList'>
             <Nav />
             {/* <i className='far fa-plus-square fa-lg'></i> */}
-            {myList.length === 0 ? (
+
+            {loading ? (
+                <div className='spinner-container'>
+                    <Spinner
+                        name='ball-clip-rotate'
+                        color='white'
+                        className='spinner'
+                    />
+                </div>
+            ) : myList.length === 0 ? (
                 <h1 className='emptyListMessage'>{emptyListMessage}</h1>
             ) : (
                 <div className='myList-posters'>

@@ -7,6 +7,8 @@ import axiosInstance from "../axios";
 import MoviePoster from "./MoviePoster";
 import "./Row.css";
 
+
+
 function Row({ title, fetchUrl, isLargeRow = false }) {
     const [movies, setMovies] = useState([]);
     const [{ data, loading, error }, refetch] = useAxios(
@@ -33,16 +35,17 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
         <div className='row'>
             <h2 className='row-title'>{title}</h2>
             <div className='row-posters'>
-                {movies.map((movie) =>
-                    loading ? (
-                        <div className='spinner-container'>
-                            <Spinner
-                                name='ball-clip-rotate'
-                                color='white'
-                                className='spinner'
-                            />
-                        </div>
-                    ) : (
+                {loading ? (
+                <div className='row-spinner-container'>
+                    <Spinner
+                        name='ball-clip-rotate'
+                        color='white'
+                        className='spinner'
+                    />
+                </div>
+                ) : 
+                movies.map(
+                    (movie) =>
                         (movie.poster_path || movie.backdrop_path) && (
                             <MoviePoster
                                 movie={movie}
@@ -50,7 +53,6 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
                                 key={movie.id}
                             />
                         )
-                    )
                 )}
             </div>
         </div>

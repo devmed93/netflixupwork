@@ -25,10 +25,9 @@
     scrollbar-width: none; /* Firefox */
 }
 
-/* .spinner-container {
+.row-spinner-container {
+    height: 150px;
     width: 100vw;
-    height: 448px;
-    background-color: #111;
-    display: grid;
+    display: inline-grid;
     place-content: center;
-} */
+}
