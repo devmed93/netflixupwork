@@ -41,7 +41,8 @@
     padding: 0.01em;
 }
 .poster-container:hover > .fa-plus-circle,
-.poster-container:hover > .fa-check-circle {
+.poster-container:hover > .fa-check-circle,
+.poster-container:hover > .fa-trash-alt {
     opacity: 1;
     right: 0.3em;
 }
@@ -73,7 +74,8 @@
     z-index: -1;
 }
 .fa-plus-circle:hover + .tooltip,
-.fa-check-circle:hover + .tooltip {
+.fa-check-circle:hover + .tooltip,
+.fa-trash-alt:hover + .tooltip {
     visibility: visible;
 }
 

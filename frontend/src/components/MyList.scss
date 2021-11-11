@@ -22,29 +22,64 @@ img {
 
     .myList-posters {
         display: grid;
+        place-items: center;
         width: 100vw;
         height: 100vh;
         overflow-y: scroll;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        background-color: rgba(0, 0, 0, 0.952);
-        padding-block: 6em;
-        row-gap: 0.7em;
+        background-color: rgba(0, 0, 0, 0.849);
+        padding: 6em 1.1em;
+        row-gap: 1em;
         padding-right: 1em;
         animation: fadein 0.5s;
-        .myList-poster {
-            margin-left: 2em;
-            width: 200px;
-            height: 310px;
-            border-radius: 10px;
+        // .poster-container{
+        //     width: 300px;
+        // }
+        // .myList-poster {
+        //     margin-left: 2em;
+        //     width: 100%;
+        //     height: 310px;
+        //     border-radius: 10px;
+        //     cursor: pointer;
+        //     transition: transform 0.25s;
+        // }
+
+        .poster-container {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            transition: transform 0.2s;
             cursor: pointer;
-            transition: transform 0.25s;
+            border-radius: 40px;
+            position: relative;
+
+            &:hover > .fa-trash-alt {
+                visibility: visible;
+            }
         }
 
+        .poster-container img {
+            max-height: 300px;
+            width: 230px;
+            border-radius: 24px;
+        }
         :hover {
-            transform: scale(1.02);
+            // transform: scale(1.02);
         }
     }
 }
+.fa-trash-alt {
+    background-color: rgb(209, 12, 12);
+    color: whitesmoke;
+    position: absolute;
+    top: 0.6em;
+    right: 0.8em;
+    visibility: hidden;
+}
+.tooltip {
+    color: white;
+}
+
 /* FadeIn Animation */
 
 @keyframes fadein {

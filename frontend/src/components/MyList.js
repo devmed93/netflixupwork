@@ -20,7 +20,7 @@ function MyList() {
         "http://localhost:5000/movies/list"
     );
     const base_url = "https://image.tmdb.org/t/p/w300";
-
+    const [isMovieDeleted, setIsMovieDeleted] = useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -57,7 +57,9 @@ function MyList() {
                     {myList.map(
                         (movie) =>
                             (movie.poster_path || movie.backdrop_path) && (
-                                <React.Fragment key={movie.id}>
+                                <div
+                                    className='poster-container'
+                                    key={movie.id}>
                                     <img
                                         className='myList-poster'
                                         src={`${base_url}${
@@ -69,16 +71,21 @@ function MyList() {
                                             history.push(`/movie/${movie.id}`)
                                         }
                                     />
-                                    {/* <i
-                                        //   ref={movieRef}
-                                        className='far fa-plus-square fa-lg'
-                                        onClick={() => {
-                                            axios.post(
-                                                "http://localhost:5000/movies",
-                                                movie
-                                            );
-                                        }}></i> */}
-                                </React.Fragment>
+                                    <>
+                                        <i
+                                            className='fas fa-trash-alt'
+                                            onClick={() => {
+                                                // setIsMovieAdded(false);
+                                                axios.post(
+                                                    " http://localhost:5000/movies/list/remove",
+                                                    movie
+                                                );
+                                            }}></i>
+                                        <div className='tooltip'>
+                                            Remove from my list
+                                        </div>
+                                    </>
+                                </div>
                             )
                     )}
                 </div>
