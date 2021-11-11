@@ -24,3 +24,11 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
 }
+
+/* .spinner-container {
+    width: 100vw;
+    height: 448px;
+    background-color: #111;
+    display: grid;
+    place-content: center;
+} */

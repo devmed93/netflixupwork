@@ -5,6 +5,7 @@
     transition: transform 0.2s;
     cursor: pointer;
     position: relative;
+    animation: fadein 0.5s;
 }
 .poster-container:hover {
     transform: scale(1.05);
@@ -42,4 +43,13 @@
 .poster-container:hover > .fa-check-circle {
     opacity: 1;
     right: 0.3em;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

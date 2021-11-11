@@ -1,20 +1,13 @@
+import useAxios from "axios-hooks";
 import React, { useEffect, useState } from "react";
 import "./Banner.css";
-import axiosInstance from "../axios";
-// import requests from "../requests";
-
-import { useDispatch, useSelector } from "react-redux";
-import { registerMovie, selectMovie } from "../features/movieSlice";
-import useAxios from "axios-hooks";
 const Spinner = require("react-spinkit");
 
 function Banner() {
     const [movie, setMovie] = useState([]);
     const [{ data, loading, error }, refetch] = useAxios(
-        "http://localhost:5000/movies/netflixOriginals/random"
+        "http://localhost:5000/movies/netflixoriginals/random"
     );
-    const movieFromStore = useSelector(selectMovie);
-    const dispatch = useDispatch();
 
     useEffect(() => {
         async function fetchData() {
@@ -26,20 +19,7 @@ function Banner() {
                 }
             }
         }
-
         fetchData();
-
-        // if (!movieFromStore) {
-        //     fetchData().then(() => {
-        //         try {
-        //             dispatch(registerMovie({ ...movie }));
-        //         } catch (error) {
-        //             alert(`unable dispatch registerMovie action to the store`);
-        //         }
-        //     });
-        // } else {
-        //     setMovie({ ...movieFromStore });
-        // }
     }, [loading, data]);
 
     const truncate = (str, n) => {

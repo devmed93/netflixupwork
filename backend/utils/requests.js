@@ -8,8 +8,8 @@ const API_KEY = "51de63fa8a1f4d07c7cde869fc583239";
 
 const requests = {
     trending: `/trending/movie/week?api_key=${API_KEY}`,
-    netflixOriginals: `/discover/movie?api_key=${API_KEY}&with_networks=213`,
-    topRated: `/movie/top_rated?api_key=${API_KEY}`,
+    netflixoriginals: `/discover/movie?api_key=${API_KEY}&with_networks=213`,
+    toprated: `/movie/top_rated?api_key=${API_KEY}`,
     action: `/discover/movie?api_key=${API_KEY}&with_genres=28`,
     comedy: `/discover/movie?api_key=${API_KEY}&with_genres=35`,
     horror: `/discover/movie?api_key=${API_KEY}&with_genres=27`,
