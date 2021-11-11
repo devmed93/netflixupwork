@@ -50,26 +50,32 @@ function MoviePoster({ movie, isLargeRow = false }) {
                 onClick={() => history.push(`/movie/${movie.id}`)}
             />
             {!isMovieAdded ? (
-                <i
-                    // ref={movieRef}
-                    className='fa fa-plus-circle fa-5x '
-                    onClick={() => {
-                        setIsMovieAdded(true);
-                        axios.post(
-                            "http://localhost:5000/movies/list/add",
-                            movie
-                        );
-                    }}></i>
+                <>
+                    <i
+                        // ref={movieRef}
+                        className='fa fa-plus-circle fa-5x '
+                        onClick={() => {
+                            setIsMovieAdded(true);
+                            axios.post(
+                                "http://localhost:5000/movies/list/add",
+                                movie
+                            );
+                        }}></i>
+                    <div className='tooltip'>Add to my list</div>
+                </>
             ) : (
-                <i
-                    className='fas fa-check-circle'
-                    onClick={() => {
-                        setIsMovieAdded(false);
-                        axios.post(
-                            " http://localhost:5000/movies/list/remove",
-                            movie
-                        );
-                    }}></i>
+                <>
+                    <i
+                        className='fas fa-check-circle'
+                        onClick={() => {
+                            setIsMovieAdded(false);
+                            axios.post(
+                                " http://localhost:5000/movies/list/remove",
+                                movie
+                            );
+                        }}></i>
+                    <div className='tooltip'>Remove from my list</div>
+                </>
             )}
         </div>
     );

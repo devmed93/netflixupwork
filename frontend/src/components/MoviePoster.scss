@@ -33,6 +33,7 @@
     padding: 0.05em;
     background-color: #111;
     border-radius: 50%;
+    // font-weight: 400;
 }
 .fa-check-circle {
     color: darkgreen;
@@ -43,6 +44,37 @@
 .poster-container:hover > .fa-check-circle {
     opacity: 1;
     right: 0.3em;
+}
+
+.tooltip {
+    width: 100px;
+    background-color: rgba(0, 0, 0, 0.691);
+    text-align: center;
+    display: inline-block;
+    padding: 0.4em 0.7em;
+    font-size: 0.8em;
+    border-radius: 3px;
+    position: absolute;
+    top: 0.1em;
+    right: 2.6em;
+    z-index: 5000;
+    visibility: hidden;
+}
+.tooltip::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 100%; /* To the right of the tooltip */
+    margin-top: -6px;
+    margin-left: 0px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.691);
+    z-index: -1;
+}
+.fa-plus-circle:hover + .tooltip,
+.fa-check-circle:hover + .tooltip {
+    visibility: visible;
 }
 
 @keyframes fadein {
