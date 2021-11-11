@@ -24,9 +24,10 @@ function App() {
         <div className='App'>
             {/* <MyList /> */}
             {/* <Banner /> */}
+            {/* <Row title='Netflix Originals' fetchUrl='horror' /> */}
 
             <Router>
-                <Row title='Netflix Originals' fetchUrl='horror' />
+                <HomeScreen />
                 {/* <Switch>
                     {!user ? (
                         <LoginScreen />
