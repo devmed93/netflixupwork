@@ -1,11 +1,10 @@
+import useAxios from "axios-hooks";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Nav from "../components/Nav";
+import { selectUser } from "../features/userSlice.js";
 import "./MovieScreen.css";
-import axiosInstance from "../axios";
-// import requests from "../requests";
-import { login, logout, selectUser } from "../features/userSlice.js";
-import { useSelector } from "react-redux";
 
 function MovieScreen() {
     const { id } = useParams();
@@ -15,6 +14,16 @@ function MovieScreen() {
     const [directors, setDirectors] = useState([]);
     const base_url = "https://image.tmdb.org/t/p/w400";
 
+    const [
+        { data: movieData, loading: movieDataLoading, error: movieDataError },
+        refetch,
+    ] = useAxios(`http://localhost:5000/movies?id=${id}`);
+
+    const [
+        { data: creditsData, loading: creditsDataLoading, error: creditsDataError },
+        creditsRefetch,
+    ] = useAxios(`http://localhost:5000/movies?id=${id}&credits=true`);
+
     const user = useSelector(selectUser);
 
     const getMovieDuration = (minutes) => {
@@ -23,36 +32,44 @@ function MovieScreen() {
         return `${hours}h ${restOfMinutes}min`;
     };
 
+    /* ============ */
     useEffect(() => {
-        async function fetchData() {
-            const filmUrl = requests.fetchMovieDetails(id);
-            const req = await axiosInstance.get(
-                `${filmUrl}&append_to_response=images`
-            );
-            setMovie({ ...req.data });
-        }
-        fetchData().then(() => console.log());
-
-        /* fetchMovieCredits */
-        async function fetchCredits() {
-            const filmCreditsUrl = requests.fetchMovieDetails(id, "/credits");
-            const req = await axiosInstance.get(filmCreditsUrl);
-            // console.log(req.data);
-            let AllDirectors = getDirectors(req.data.crew);
-            let principalDirectors = getFirstNthObjects(AllDirectors, 2);
-            setDirectors([...principalDirectors]);
-            // console.log("Principal directors are : ", directors);
-            // setMovieCredits(req.data);
-            // console.log(`movie credits is ${movieCredits}`);
-            let fetchedActors = [];
-            for (let i = 0; i < 3; i++) {
-                fetchedActors.push(req.data?.cast[i]);
+        async function fetchMovieDetails() {
+            if (!movieDataLoading) {
+                try {
+                    setMovie(movieData);
+                } catch (error) {
+                    console.log(error);
+                }
             }
-            setActors([...fetchedActors]);
-            // console.log(`fetched actors are ${actors}`);
         }
-        fetchCredits();
-    }, []);
+        fetchMovieDetails();
+
+        async function fetchMovieCredits() {
+            if (!creditsDataLoading) {
+                try {
+                    let AllDirectors = getDirectors(creditsData.crew);
+                    let principalDirectors = getFirstNthObjects(
+                        AllDirectors,
+                        2
+                    );
+                    setDirectors([...principalDirectors]);
+
+                    let fetchedActors = [];
+                    for (let i = 0; i < 3; i++) {
+                        fetchedActors.push(creditsData?.cast[i]);
+                    }
+                    setActors([...fetchedActors]);
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+        }
+        fetchMovieCredits();
+    }, [movieDataLoading, movieData, creditsData, creditsDataLoading]);
+
+    /* ========== */
+
 
     const truncate = (str, n) => {
         return str?.length <= n ? str : str.substr(0, n) + "...";

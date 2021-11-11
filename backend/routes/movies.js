@@ -40,10 +40,13 @@ router.get("/:genre/random", async (req, res) => {
 router.get("/", async (req, res) => {
     console.log("get request to movie details page");
     const id = req.query.id;
-    console.log(id)
+
+    console.log(id);
     let movieDetails;
     try {
-        movieDetails = await getMovieDetailsById(id);
+        if (req.query.credits) {
+            movieDetails = await getMovieDetailsById(id, true);
+        } else movieDetails = await getMovieDetailsById(id);
     } catch (error) {}
     console.log(movieDetails);
     res.json(movieDetails);
