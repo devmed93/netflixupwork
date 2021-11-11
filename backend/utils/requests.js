@@ -19,7 +19,10 @@ const requests = {
         const creditsParameter = credits ? "/credits" : "";
         return `/movie/${id}${credits}?api_key=${API_KEY}`;
     },
-    
+    recommended: `/movie/566525/recommendations?api_key=${API_KEY}&language=en-US&page=1
+`,
 };
 
 module.exports = { axiosInstance, requests };
+
+

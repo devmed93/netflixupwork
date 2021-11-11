@@ -1,5 +1,6 @@
 import useAxios from "axios-hooks";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Banner.css";
 const Spinner = require("react-spinkit");
 
@@ -57,7 +58,12 @@ function Banner() {
                         </h1>
                         <div className='banner-buttons'>
                             <button className='banner-button'>play</button>
-                            <button className='banner-button'>my list</button>
+                            <button className='banner-button'>
+                                <Link to='/mylist' className = 'mylist-button'>
+                                  
+                                    my list
+                                </Link>
+                            </button>
                         </div>
                         <p className='banner-description'>
                             {truncate(`${movie?.overview}`, 150)}

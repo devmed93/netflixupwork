@@ -32,11 +32,11 @@
     display: flex;
     margin: 0 auto;
     border-radius: 3px;
-    animation: fadein 0.8s;
+    animation: fadein 0.5s;
 }
 .movie-container > * {
     margin-inline: 1.6em;
-    animation: fadein 0.8s;
+    animation: fadein 0.5s;
 }
 
 .movie-poster {
@@ -155,7 +155,6 @@
 
 .spinner-container {
     background-color: transparent;
-    
 }
 
 /* =======Media Queries====== */

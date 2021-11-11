@@ -13,6 +13,16 @@
 
     animation: fadein 0.5s;
 }
+.mylist-button {
+    text-decoration: none;
+}
+.mylist-button:visited {
+    color: white;
+}
+.mylist-button:hover {
+    color: rgba(51, 51, 51, 0.9);
+    text-decoration: none;
+}
 
 .banner-content {
     margin-left: 1.9em;
@@ -66,7 +76,10 @@
 .banner-button:hover {
     background-color: #e6e6e6;
     color: #111;
-    transition: all 0.2s;
+    transition: all 0.1s;
+}
+.banner-button:hover > * {
+    color: rgba(51, 51, 51, 0.9);
 }
 
 /* Emphasize the banner content  */

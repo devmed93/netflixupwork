@@ -18,6 +18,11 @@ function HomeScreen() {
                 isLargeRow={true}
             />
             <Row title='Trending Now' fetchUrl={"trending"} />
+            <Row
+                title='Recommended'
+                fetchUrl={"recommended"}
+                isLargeRow={true}
+            />
             <Row title='Top Rated' fetchUrl={"toprated"} />
             <Row title='Action Movies' fetchUrl={"action"} />
             <Row title='Comedy Movies' fetchUrl={"comedy"} />
