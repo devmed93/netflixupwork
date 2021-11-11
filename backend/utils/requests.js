@@ -19,6 +19,7 @@ const requests = {
         const creditsParameter = credits ? "/credits" : "";
         return `/movie/${id}${credits}?api_key=${API_KEY}`;
     },
+    
 };
 
 module.exports = { axiosInstance, requests };

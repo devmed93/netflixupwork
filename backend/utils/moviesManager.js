@@ -60,10 +60,43 @@ const getRandomMovie = async (genre) => {
     return data[Math.floor(Math.random() * ((await data?.length) - 1))];
 };
 
+const getMovieDetailsById = async (id, credits=false) => {
+    let movie;
+    let movieDetailsUrl = !credits
+        ? requests.movieDetails(id)
+        : requests.movieDetails(id, "/credits");
+    console.log(movieDetailsUrl);
+    try {
+        movie = await axiosInstance
+            .get(`${movieDetailsUrl}&append_to_response=images`)
+            .then((response) => response.data);
+    } catch (error) {
+        console.log(error);
+    }
+    return movie;
+};
+
+
+// const getMovieCreditsById = async (id) => {
+//     let movieCredits;
+//     let movieDetailsUrl = requests.movieDetails(id, "/credits");
+//     console.log(movieDetailsUrl);
+//     try {
+//         movieCredits = await axiosInstance
+//             .get(`${movieDetailsUrl}&append_to_response=images`)
+//             .then((response) => response.data);
+//     } catch (error) {
+//         console.log(error);
+//     }
+//     return movieCredits;
+// };
+
 module.exports = {
     getMyMoviesList,
     addToMyMoviesList,
     removeFromMyMoviesList,
     getMoviesByGenre,
     getRandomMovie,
+    getMovieDetailsById,
+    // getMovieCreditsById,
 };

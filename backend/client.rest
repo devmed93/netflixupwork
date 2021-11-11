@@ -29,15 +29,19 @@ content-type: application/json
 
 ###
 
-GET http://localhost:5000/movies/netflixOriginals
+GET http://localhost:5000/movies/netflixoriginals
 
 
 ####
 
-GET http://localhost:5000/movies/netflixOriginals/random
+GET http://localhost:5000/movies/netflixoriginals/random
 
 
 ####
+
+GET http://localhost:5000/movies?id=580489
+
+###
 
 POST http://localhost:5000/users/login
 content-type: application/json

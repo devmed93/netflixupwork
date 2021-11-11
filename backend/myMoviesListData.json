@@ -14,5 +14,22 @@
         "video": false,
         "vote_average": 8.7,
         "vote_count": 3210
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/lNyLSOKMMeUPr1RsL4KcRuIXwHt.jpg",
+        "genre_ids": [878, 28, 12],
+        "original_language": "en",
+        "original_title": "Venom: Let There Be Carnage",
+        "poster_path": "/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg",
+        "video": false,
+        "title": "Venom: Let There Be Carnage",
+        "vote_count": 1736,
+        "overview": "After finding a host body in investigative reporter Eddie Brock, the alien symbiote must face a new enemy, Carnage, the alter ego of serial killer Cletus Kasady.",
+        "release_date": "2021-09-30",
+        "vote_average": 6.8,
+        "id": 580489,
+        "popularity": 5401.308,
+        "media_type": "movie"
     }
 ]

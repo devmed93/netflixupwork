@@ -25,10 +25,10 @@ function App() {
             {/* <MyList /> */}
             {/* <Banner /> */}
             {/* <Row title='Netflix Originals' fetchUrl='horror' /> */}
+            {/* <HomeScreen /> */}
 
             <Router>
-                <HomeScreen />
-                {/* <Switch>
+                <Switch>
                     {!user ? (
                         <LoginScreen />
                     ) : (
@@ -47,7 +47,7 @@ function App() {
                             </Route>
                         </>
                     )}
-                </Switch> */}
+                </Switch>
             </Router>
         </div>
     );

@@ -1,4 +1,5 @@
 import axios from "axios";
+import useAxios from "axios-hooks";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./MoviePoster.scss";
@@ -7,26 +8,28 @@ function MoviePoster({ movie, isLargeRow = false }) {
     const base_url = "https://image.tmdb.org/t/p/w200";
     const history = useHistory();
     const [isMovieAdded, setIsMovieAdded] = useState(false);
-    const [myMoviesList, setMyMoviesList] = useState([]);
+    const [{ data, loading, error }, refetch] = useAxios(
+        "http://localhost:5000/movies/list"
+    );
 
     /* ===================== */
 
     useEffect(() => {
         const fetchMyMoviesList = async () => {
-            axios
-                .get("http://localhost:5000/movies/list")
-                .then((results) => results?.data)
-                .then((data) => {
+            /* ======== */
+            if (!loading) {
+                try {
                     data.find(
                         (movieFromMyList) => movieFromMyList?.id === movie?.id
                     )
                         ? setIsMovieAdded(true)
                         : setIsMovieAdded(false);
-                });
-            // await setMyMoviesList(data);
-            // const isInMyMoviesList = data?.find((item) => item.id === movie.id)
-            //     ? true
-            //     : false;
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+
+            /* ========== */
         };
         fetchMyMoviesList();
     }, []);
