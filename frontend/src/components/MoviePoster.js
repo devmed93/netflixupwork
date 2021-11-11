@@ -32,7 +32,7 @@ function MoviePoster({ movie, isLargeRow = false }) {
             /* ========== */
         };
         fetchMyMoviesList();
-    }, []);
+    }, [data, loading, movie?.id]);
 
     /* ================= */
 
