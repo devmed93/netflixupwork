@@ -14,28 +14,18 @@ import Spinner from "react-spinkit";
 
 function MyList() {
     const emptyListMessage = <Link to='/'>Add movies from the HomeScreen</Link>;
-    const movieList = useSelector(selectmyMovieList);
     const [myList, setMyList] = useState([]);
     const [{ data, loading, error }, refetch] = useAxios(
         "http://localhost:5000/movies/list"
     );
     const base_url = "https://image.tmdb.org/t/p/w300";
-    const [isMovieDeleted, setIsMovieDeleted] = useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
-
+    console.count("mylist render");
+  
     useEffect(() => {
-        const fetchMyMoviesList = async () => {
-            if (!loading) {
-                try {
-                    setMyList(data);
-                } catch (error) {
-                    console.log(error);
-                }
-            }
-        };
-        fetchMyMoviesList();
-    }, [loading, data]);
+        setMyList(data);
+    }, [data]);
 
     return (
         <div className='myList'>
@@ -50,11 +40,11 @@ function MyList() {
                         className='spinner'
                     />
                 </div>
-            ) : myList.length === 0 ? (
+            ) : myList?.length === 0 ? (
                 <h1 className='emptyListMessage'>{emptyListMessage}</h1>
             ) : (
                 <div className='myList-posters'>
-                    {myList.map(
+                    {myList?.map(
                         (movie) =>
                             (movie.poster_path || movie.backdrop_path) && (
                                 <div
@@ -79,6 +69,13 @@ function MyList() {
                                                 axios.post(
                                                     " http://localhost:5000/movies/list/remove",
                                                     movie
+                                                );
+                                                setMyList((prevList) =>
+                                                    prevList.filter(
+                                                        (currentMovie) =>
+                                                            currentMovie.id !==
+                                                            movie.id
+                                                    )
                                                 );
                                             }}></i>
                                         <div className='tooltip'>
