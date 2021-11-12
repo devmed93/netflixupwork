@@ -20,7 +20,7 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
             if (!loading) {
                 try {
                     setMovies(data);
-                    console.log(data);
+                    // console.log(data);
                 } catch (error) {
                     console.log(error);
                 }

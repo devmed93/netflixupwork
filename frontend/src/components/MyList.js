@@ -25,6 +25,7 @@ function MyList() {
   
     useEffect(() => {
         setMyList(data);
+        
     }, [data]);
 
     return (
