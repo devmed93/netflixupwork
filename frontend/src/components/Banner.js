@@ -48,7 +48,7 @@ function Banner() {
                         "https://image.tmdb.org/t/p/original/${movie?.backdrop_path}"
                     )`,
 
-                        backgroundPosition: "center",
+                        backgroundPosition: "center 30%",
                     }}>
                     <div className='banner-content'>
                         <h1 className='banner-title'>
@@ -59,8 +59,7 @@ function Banner() {
                         <div className='banner-buttons'>
                             <button className='banner-button'>play</button>
                             <button className='banner-button'>
-                                <Link to='/mylist' className = 'mylist-button'>
-                                  
+                                <Link to='/mylist' className='mylist-button'>
                                     my list
                                 </Link>
                             </button>

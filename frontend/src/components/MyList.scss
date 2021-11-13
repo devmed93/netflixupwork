@@ -3,6 +3,7 @@ img {
 }
 
 .myList {
+    color: whitesmoke;
     background-color: #111;
     height: 100vh;
     .emptyListMessage {
@@ -28,21 +29,10 @@ img {
         overflow-y: scroll;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         background-color: rgba(0, 0, 0, 0.849);
-        padding: 6em 1.1em;
         row-gap: 1em;
-        padding-right: 1em;
         animation: fadein 0.5s;
-        // .poster-container{
-        //     width: 300px;
-        // }
-        // .myList-poster {
-        //     margin-left: 2em;
-        //     width: 100%;
-        //     height: 310px;
-        //     border-radius: 10px;
-        //     cursor: pointer;
-        //     transition: transform 0.25s;
-        // }
+        padding: 2rem;
+        padding-top: 6rem;
 
         .poster-container {
             padding: 0;
@@ -53,8 +43,41 @@ img {
             border-radius: 40px;
             position: relative;
 
-            &:hover > .fa-trash-alt {
+            &:hover > .fa-trash-alt,
+            &:hover > .movie-infos {
                 visibility: visible;
+            }
+
+            .movie-infos {
+                font-size: 0.8em;
+                letter-spacing: 0.05em;
+                font-weight: 400;
+                background-image: linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 1),
+                    80%,
+                    rgba(0, 0, 0, 0.1)
+                );
+                padding-inline: 1.8em;
+                padding-block: 1em;
+                width: 100%;
+                max-width: 203px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: absolute;
+                bottom: 0.3em;
+                left: 1em;
+                .movie-title {
+                    font-size: 0.9em;
+                    font-weight: 400;
+                    max-width: 60%;
+                }
+                .movie-rating {
+                    padding: 0;
+                    height: 100%;
+                    line-height: 100%;
+                }
             }
         }
 
@@ -63,14 +86,13 @@ img {
             width: 230px;
             border-radius: 24px;
         }
-        :hover {
-            // transform: scale(1.02);
-        }
     }
 }
 .fa-trash-alt {
-    background-color: rgb(209, 12, 12);
+    background-color: #0202029b;
     color: whitesmoke;
+    padding: 0.4em;
+    border-radius: 50%;
     position: absolute;
     top: 0.6em;
     right: 0.8em;
@@ -78,6 +100,7 @@ img {
 }
 .tooltip {
     color: white;
+    margin-right: 0.3em;
 }
 
 /* FadeIn Animation */
@@ -93,14 +116,58 @@ img {
 
 /* Media queries */
 @media all and (max-width: 490px) {
-    .myList-posters {
-        padding: 0;
-        display: inline-block;
-        .poster-container {
-               display: flex;
-               justify-content: center;
-               align-items: center;
-          
+    .myList {
+        .myList-posters {
+            padding-top: 25rem;
+            display: grid;
+            grid-template-columns: repeat(2, 174px);
+            place-content: center;
+            row-gap: 1.5em;
+            .poster-container {
+                position: relative;
+                width: 140px;
+
+                .myList-poster {
+                    width: 100%;
+                    margin: 0;
+                    object-fit: cover;
+                    max-height: 200px;
+                    border-radius: 0.7em;
+                }
+
+                .movie-infos {
+                    left: 0;
+                    padding-inline: 1em;
+                }
+            }
+        }
+    }
+}
+@media all and (min-width: 491px) and (max-width: 680px) {
+    .myList {
+        .myList-posters {
+            padding-top: 10rem;
+            display: grid;
+            grid-template-columns: repeat(3, 174px);
+            place-content: center;
+            row-gap: 1.5em;
+            .poster-container {
+                position: relative;
+                width: 160px;
+
+                .myList-poster {
+                    width: 100%;
+                    margin: 0;
+                    object-fit: cover;
+                    max-height: 200px;
+                    border-radius: 0.7em;
+                }
+
+                .movie-infos {
+                    left: 0;
+                    padding-inline: 1em;
+                }
+            }
         }
     }
 }

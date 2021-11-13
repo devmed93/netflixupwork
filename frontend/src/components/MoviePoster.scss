@@ -22,25 +22,26 @@
     margin-right: -1.2em;
 }
 
-.fa-plus-circle,
+.fa-plus-square,
 .fa-check-circle {
     font-size: 1.2em;
     position: absolute;
     top: 0.3em;
     right: -1.3em;
     opacity: 0;
+    /* ==== */
+
+    background-color: #0202029b;
     color: whitesmoke;
-    padding: 0.05em;
-    background-color: #111;
+    padding: 0.3em;
     border-radius: 50%;
-    // font-weight: 400;
 }
 .fa-check-circle {
-    color: darkgreen;
-    background-color: #fff;
-    padding: 0.01em;
+    // color: darkgreen;
+    // background-color: #fff;
+    padding: 0.2em;
 }
-.poster-container:hover > .fa-plus-circle,
+.poster-container:hover > .fa-plus-square,
 .poster-container:hover > .fa-check-circle,
 .poster-container:hover > .fa-trash-alt {
     opacity: 1;
@@ -56,10 +57,12 @@
     font-size: 0.8em;
     border-radius: 3px;
     position: absolute;
-    top: 0.1em;
-    right: 2.6em;
+    top: 0.5em;
+    right: 2.7em;
     z-index: 5000;
-    visibility: hidden;
+    opacity: 0;
+    // visibility: hidden;
+    transition: opacity 0.2s;
 }
 .tooltip::after {
     content: " ";
@@ -73,10 +76,11 @@
     border-color: transparent transparent transparent rgba(0, 0, 0, 0.691);
     z-index: -1;
 }
-.fa-plus-circle:hover + .tooltip,
+.fa-plus-square:hover + .tooltip,
 .fa-check-circle:hover + .tooltip,
 .fa-trash-alt:hover + .tooltip {
-    visibility: visible;
+    // visibility: visible;
+    opacity: 1;
 }
 
 @keyframes fadein {

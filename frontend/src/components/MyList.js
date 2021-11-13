@@ -3,6 +3,7 @@ import useAxios from "axios-hooks";
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Spinner from "react-spinkit";
+import { getMovieDuration, removeLastComma } from "../utils";
 import "./MyList.scss";
 import Nav from "./Nav";
 
@@ -20,6 +21,7 @@ function MyList() {
 
     useEffect(() => {
         axios.get("http://localhost:5000/movies/list").then((response) => {
+            console.log(response.data);
             setMyList(response.data);
             setLoading(false);
         });
@@ -59,6 +61,21 @@ function MyList() {
                                             history.push(`/movie/${movie.id}`)
                                         }
                                     />
+                                    <div className='movie-infos'>
+                                            <h1 className='movie-title'>
+                                                {movie?.title}
+                                            </h1>
+                                            <div className='movie-rating'>
+                                                <span className='rating'>
+                                                    {movie?.vote_average?.toFixed(
+                                                        1
+                                                    )}
+                                                </span>
+                                                <i className='fas fa-star'></i>
+                                            </div>
+                                      
+                                       
+                                    </div>
                                     <>
                                         <i
                                             className='fas fa-trash-alt'

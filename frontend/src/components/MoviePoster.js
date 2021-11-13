@@ -53,7 +53,7 @@ function MoviePoster({ movie, isLargeRow = false }) {
                 <>
                     <i
                         // ref={movieRef}
-                        className='fa fa-plus-circle fa-5x '
+                        className='far fa-plus-square fa-5x'
                         onClick={() => {
                             setIsMovieAdded(true);
                             axios.post(
@@ -66,7 +66,7 @@ function MoviePoster({ movie, isLargeRow = false }) {
             ) : (
                 <>
                     <i
-                        className='fas fa-check-circle'
+                        className='far fa-check-circle fa-2x'
                         onClick={() => {
                             setIsMovieAdded(false);
                             axios.post(

@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import Spinner from "react-spinkit";
 import Nav from "../components/Nav";
 import { selectUser } from "../features/userSlice.js";
+import { getDirectors, getFirstNthObjects, getMovieDuration, removeLastComma, truncate } from "../utils";
 import "./MovieScreen.css";
 
 function MovieScreen() {
@@ -31,11 +32,7 @@ function MovieScreen() {
 
     const user = useSelector(selectUser);
 
-    const getMovieDuration = (minutes) => {
-        const hours = Math.floor(minutes / 60);
-        const restOfMinutes = minutes % 60;
-        return `${hours}h ${restOfMinutes}min`;
-    };
+  
 
     /* ============ */
     useEffect(() => {
@@ -74,28 +71,6 @@ function MovieScreen() {
     }, [movieDataLoading, movieData, creditsData, creditsDataLoading]);
 
     /* ========== */
-
-    const truncate = (str, n) => {
-        return str?.length <= n ? str : str.substr(0, n) + "...";
-    };
-
-    const removeLastComma = (strArr) => {
-        const str = strArr?.join("  ");
-        return str?.substring(0, str?.length - 1);
-    };
-    const getFirstNthObjects = (arr, n) => {
-        let counter = 0;
-        let newArr = [];
-        while (counter < arr?.length && counter < n) {
-            newArr.push(arr[counter++]);
-        }
-        return newArr;
-    };
-    const getDirectors = (crew) => {
-        return crew.filter(
-            (crewMember) => crewMember.department === "Directing"
-        );
-    };
 
     return (
         <>
@@ -223,3 +198,4 @@ function MovieScreen() {
 }
 
 export default MovieScreen;
+// export {removeLastComma};
