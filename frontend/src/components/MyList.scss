@@ -90,3 +90,17 @@ img {
         opacity: 1;
     }
 }
+
+/* Media queries */
+@media all and (max-width: 490px) {
+    .myList-posters {
+        padding: 0;
+        display: inline-block;
+        .poster-container {
+               display: flex;
+               justify-content: center;
+               align-items: center;
+          
+        }
+    }
+}
