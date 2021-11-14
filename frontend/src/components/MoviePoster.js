@@ -8,9 +8,19 @@ function MoviePoster({ movie, isLargeRow = false }) {
     const base_url = "https://image.tmdb.org/t/p/w200";
     const history = useHistory();
     const [isMovieAdded, setIsMovieAdded] = useState(false);
-    const [{ data, loading, error }, refetch] = useAxios(
-        "http://localhost:5000/movies/list"
-    );
+    // const [{ data, loading, error }, refetch] = useAxios(
+    //     "http://localhost:5000/movies/list"
+    // );
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        axios.get("http://localhost:5000/movies/list").then((response) => {
+            console.log(response.data);
+            setData(response.data);
+            setLoading(false);
+        });
+    }, []);
 
     /* ===================== */
 
