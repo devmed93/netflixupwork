@@ -43,9 +43,9 @@ app.use("/users", userRouter);
 app.use("/movies/list", moviesListRouter);
 app.use("/movies", moviesRouter);
 
-// app.get('*', (req, res) => {
-//   res.sendFile('../frontend/build/index.html')
-// })
+app.get('*', (req, res) => {
+  res.sendFile('../frontend/build/index.html')
+})
 
 app.listen(port, "localhost", () => {
     console.log(`server listening at port : ${port}`);
