@@ -34,6 +34,9 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("../frontend/build"));
 }
 
+app.get('*', (req, res) => {
+  res.sendFile('../frontend/build/index.html')
+})
 app.get("/", async (req, res) => {
     console.log(req.sesison);
     res.send("server home page");
@@ -43,9 +46,6 @@ app.use("/users", userRouter);
 app.use("/movies/list", moviesListRouter);
 app.use("/movies", moviesRouter);
 
-app.get('*', (req, res) => {
-  res.sendFile('../frontend/build/index.html')
-})
 
 app.listen(port, "localhost", () => {
     console.log(`server listening at port : ${port}`);
