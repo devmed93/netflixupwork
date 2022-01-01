@@ -36,15 +36,20 @@ if (process.env.NODE_ENV === "production") {
 // app.get('*', (req, res) => {
 //   res.sendFile('../frontend/build/index.html')
 // })
-app.get("/", async (req, res) => {
-    console.log(req.sesison);
-    res.send("server home page");
-});
+// app.get("/", async (req, res) => {
+//     console.log(req.sesison);
+//     res.send("server home page");
+// });
+
+app.use(express.static(path.join(__dirname, "build")));
 
 app.use("/users", userRouter);
 app.use("/movies/list", moviesListRouter);
 app.use("/movies", moviesRouter);
 
+app.get("/*", function (req, res) {
+    res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 app.listen(port, "localhost", () => {
     console.log(`server listening at port : ${port}`);
 });
