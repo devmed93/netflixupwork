@@ -41,7 +41,7 @@ if (process.env.NODE_ENV === "production") {
 //     res.send("server home page");
 // });
 
-app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(path.join(__dirname, "client", "build")));
 
 app.use("/users", userRouter);
 app.use("/movies/list", moviesListRouter);
