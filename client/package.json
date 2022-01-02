@@ -1,5 +1,5 @@
 {
-    
+    "proxy": "https://netflix-clone-demo-2022.herokuapp.com",
     "type": "module",
     "name": "neflix-clone",
     "version": "0.1.0",
