@@ -48,8 +48,9 @@ app.use("/movies/list", moviesListRouter);
 app.use("/movies", moviesRouter);
 
 app.get("/*", function (req, res) {
-    res.sendFile(path.join(__dirname,"client" ,"build", "index.html"));
+    console.log("the process.env port is ==>", process.env.PORT);
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
-app.listen(port, "localhost", () => {
-    console.log(`server listening at port : ${port}`);
+app.listen(process.env.PORT, "localhost", () => {
+    console.log(`server listening at port => ${port}`);
 });
