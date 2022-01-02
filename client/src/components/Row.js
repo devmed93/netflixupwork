@@ -7,12 +7,10 @@ import axiosInstance from "../axios";
 import MoviePoster from "./MoviePoster";
 import "./Row.css";
 
-
-
 function Row({ title, fetchUrl, isLargeRow = false }) {
     const [movies, setMovies] = useState([]);
     const [{ data, loading, error }, refetch] = useAxios(
-        `http://localhost:5000/movies/${fetchUrl}`
+        `https://netflix-clone-demo-2022.herokuapp.com/movies/${fetchUrl}`
     );
 
     useEffect(() => {
@@ -36,23 +34,24 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
             <h2 className='row-title'>{title}</h2>
             <div className='row-posters'>
                 {loading ? (
-                <div className='row-spinner-container'>
-                    <Spinner
-                        name='ball-clip-rotate'
-                        color='white'
-                        className='spinner'
-                    />
-                </div>
-                ) : 
-                movies.map(
-                    (movie) =>
-                        (movie.poster_path || movie.backdrop_path) && (
-                            <MoviePoster
-                                movie={movie}
-                                isLargeRow={isLargeRow}
-                                key={movie.id}
-                            />
-                        )
+                    <div className='row-spinner-container'>
+                        <Spinner
+                            name='ball-clip-rotate'
+                            color='white'
+                            className='spinner'
+                        />
+                    </div>
+                ) : (
+                    movies.map(
+                        (movie) =>
+                            (movie.poster_path || movie.backdrop_path) && (
+                                <MoviePoster
+                                    movie={movie}
+                                    isLargeRow={isLargeRow}
+                                    key={movie.id}
+                                />
+                            )
+                    )
                 )}
             </div>
         </div>

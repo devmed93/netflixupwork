@@ -11,7 +11,7 @@ function MyList() {
     const emptyListMessage = <Link to='/'>Add movies from the HomeScreen</Link>;
     const [myList, setMyList] = useState([]);
     // const [{ data, loading, error }, refetch] = useAxios(
-    //     "http://localhost:5000/movies/list"
+    //     "https://netflix-clone-demo-2022.herokuapp.com/movies/list"
     // );
     const [loading, setLoading] = useState(true);
     const base_url = "https://image.tmdb.org/t/p/w300";
@@ -20,11 +20,13 @@ function MyList() {
     console.count("mylist render");
 
     useEffect(() => {
-        axios.get("http://localhost:5000/movies/list").then((response) => {
-            console.log(response.data);
-            setMyList(response.data);
-            setLoading(false);
-        });
+        axios
+            .get("https://netflix-clone-demo-2022.herokuapp.com/movies/list")
+            .then((response) => {
+                console.log(response.data);
+                setMyList(response.data);
+                setLoading(false);
+            });
     }, []);
 
     return (
@@ -62,19 +64,17 @@ function MyList() {
                                         }
                                     />
                                     <div className='movie-infos'>
-                                            <h1 className='movie-title'>
-                                                {movie?.title}
-                                            </h1>
-                                            <div className='movie-rating'>
-                                                <span className='rating'>
-                                                    {movie?.vote_average?.toFixed(
-                                                        1
-                                                    )}
-                                                </span>
-                                                <i className='fas fa-star'></i>
-                                            </div>
-                                      
-                                       
+                                        <h1 className='movie-title'>
+                                            {movie?.title}
+                                        </h1>
+                                        <div className='movie-rating'>
+                                            <span className='rating'>
+                                                {movie?.vote_average?.toFixed(
+                                                    1
+                                                )}
+                                            </span>
+                                            <i className='fas fa-star'></i>
+                                        </div>
                                     </div>
                                     <>
                                         <i
@@ -82,7 +82,7 @@ function MyList() {
                                             onClick={() => {
                                                 // setIsMovieAdded(false);
                                                 axios.post(
-                                                    " http://localhost:5000/movies/list/remove",
+                                                    " https://netflix-clone-demo-2022.herokuapp.com/movies/list/remove",
                                                     movie
                                                 );
                                                 setMyList((prevList) =>

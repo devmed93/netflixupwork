@@ -9,17 +9,19 @@ function MoviePoster({ movie, isLargeRow = false }) {
     const history = useHistory();
     const [isMovieAdded, setIsMovieAdded] = useState(false);
     // const [{ data, loading, error }, refetch] = useAxios(
-    //     "http://localhost:5000/movies/list"
+    //     "https://netflix-clone-demo-2022.herokuapp.com/movies/list"
     // );
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/movies/list").then((response) => {
-            console.log(response.data);
-            setData(response.data);
-            setLoading(false);
-        });
+        axios
+            .get("https://netflix-clone-demo-2022.herokuapp.com/movies/list")
+            .then((response) => {
+                console.log(response.data);
+                setData(response.data);
+                setLoading(false);
+            });
     }, []);
 
     /* ===================== */
@@ -67,7 +69,7 @@ function MoviePoster({ movie, isLargeRow = false }) {
                         onClick={() => {
                             setIsMovieAdded(true);
                             axios.post(
-                                "http://localhost:5000/movies/list/add",
+                                "https://netflix-clone-demo-2022.herokuapp.com/movies/list/add",
                                 movie
                             );
                         }}></i>
@@ -80,7 +82,7 @@ function MoviePoster({ movie, isLargeRow = false }) {
                         onClick={() => {
                             setIsMovieAdded(false);
                             axios.post(
-                                " http://localhost:5000/movies/list/remove",
+                                " https://netflix-clone-demo-2022.herokuapp.com/movies/list/remove",
                                 movie
                             );
                         }}></i>

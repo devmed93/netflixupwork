@@ -1,16 +1,16 @@
 
-GET http://localhost:5000/
+GET https://netflix-clone-demo-2022.herokuapp.com/
 
 ###
-GET http://localhost:5000/users
+GET https://netflix-clone-demo-2022.herokuapp.com/users
 
 
 ###
 
-GET http://localhost:5000/movies/list
+GET https://netflix-clone-demo-2022.herokuapp.com/movies/list
 
 ###
-POST http://localhost:5000/movies/list/add
+POST https://netflix-clone-demo-2022.herokuapp.com/movies/list/add
 content-type: application/json
 
 {
@@ -19,7 +19,7 @@ content-type: application/json
 }
 ###
 
-POST http://localhost:5000/movies/list/remove
+POST https://netflix-clone-demo-2022.herokuapp.com/movies/list/remove
 content-type: application/json
 
  {
@@ -29,21 +29,21 @@ content-type: application/json
 
 ###
 
-GET http://localhost:5000/movies/netflixoriginals
+GET https://netflix-clone-demo-2022.herokuapp.com/movies/netflixoriginals
 
 
 ####
 
-GET http://localhost:5000/movies/netflixoriginals/random
+GET https://netflix-clone-demo-2022.herokuapp.com/movies/netflixoriginals/random
 
 
 ####
 
-GET http://localhost:5000/movies?id=580489
+GET https://netflix-clone-demo-2022.herokuapp.com/movies?id=580489
 
 ###
 
-POST http://localhost:5000/users/login
+POST https://netflix-clone-demo-2022.herokuapp.com/users/login
 content-type: application/json
 
 {

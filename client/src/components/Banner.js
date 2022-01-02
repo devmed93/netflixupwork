@@ -7,7 +7,7 @@ const Spinner = require("react-spinkit");
 function Banner() {
     const [movie, setMovie] = useState([]);
     const [{ data, loading, error }, refetch] = useAxios(
-        "http://localhost:5000/movies/netflixoriginals/random"
+        "https://netflix-clone-demo-2022.herokuapp.com/movies/netflixoriginals/random"
     );
 
     useEffect(() => {

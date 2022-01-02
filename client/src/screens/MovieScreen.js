@@ -5,7 +5,13 @@ import { useParams } from "react-router-dom";
 import Spinner from "react-spinkit";
 import Nav from "../components/Nav";
 import { selectUser } from "../features/userSlice.js";
-import { getDirectors, getFirstNthObjects, getMovieDuration, removeLastComma, truncate } from "../utils";
+import {
+    getDirectors,
+    getFirstNthObjects,
+    getMovieDuration,
+    removeLastComma,
+    truncate,
+} from "../utils";
 import "./MovieScreen.css";
 
 function MovieScreen() {
@@ -19,7 +25,9 @@ function MovieScreen() {
     const [
         { data: movieData, loading: movieDataLoading, error: movieDataError },
         refetch,
-    ] = useAxios(`http://localhost:5000/movies?id=${id}`);
+    ] = useAxios(
+        `https://netflix-clone-demo-2022.herokuapp.com/movies?id=${id}`
+    );
 
     const [
         {
@@ -28,11 +36,11 @@ function MovieScreen() {
             error: creditsDataError,
         },
         creditsRefetch,
-    ] = useAxios(`http://localhost:5000/movies?id=${id}&credits=true`);
+    ] = useAxios(
+        `https://netflix-clone-demo-2022.herokuapp.com/movies?id=${id}&credits=true`
+    );
 
     const user = useSelector(selectUser);
-
-  
 
     /* ============ */
     useEffect(() => {

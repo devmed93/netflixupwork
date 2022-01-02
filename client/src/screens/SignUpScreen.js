@@ -26,7 +26,10 @@ const SignUpScreen = () => {
         };
 
         axios
-            .post("http://localhost:5000/users/login", checkedUser)
+            .post(
+                "https://netflix-clone-demo-2022.herokuapp.com/users/login",
+                checkedUser
+            )
             .then((user) => user.data)
             .then((userAuth) => {
                 try {
