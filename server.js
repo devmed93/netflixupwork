@@ -50,6 +50,6 @@ app.use("/movies", moviesRouter);
 app.get("/*", function (req, res) {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
-app.listen(port, "localhost", () => {
+app.listen(port, () => {
     console.log(`server listening at port : ${port}`);
 });
