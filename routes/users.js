@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcrypt");
 const cors = require("cors");
 const getUsers = require("../usersdata.js");
 const auth = require("../utils/auth.js");
