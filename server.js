@@ -48,7 +48,7 @@ app.use("/movies/list", moviesListRouter);
 app.use("/movies", moviesRouter);
 
 app.get("/*", function (req, res) {
-    res.sendFile(path.join(__dirname, "build", "index.html"));
+    res.sendFile(path.join(__dirname,"client" ,"build", "index.html"));
 });
 app.listen(port, "localhost", () => {
     console.log(`server listening at port : ${port}`);
