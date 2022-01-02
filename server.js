@@ -36,10 +36,10 @@ if (process.env.NODE_ENV === "production") {
 // app.get('*', (req, res) => {
 //   res.sendFile('../frontend/build/index.html')
 // })
-app.get("/", async (req, res) => {
-    console.log(`the port is => ${port}`);
-    console.log("the process.env port is ==>", process.env.PORT);
-});
+// app.get("/", async (req, res) => {
+//     console.log(`the port is => ${port}`);
+//     console.log("the process.env port is ==>", process.env.PORT);
+// });
 
 app.use(express.static(path.join(__dirname, "client", "build")));
 
