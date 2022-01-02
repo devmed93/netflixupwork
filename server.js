@@ -36,10 +36,10 @@ if (process.env.NODE_ENV === "production") {
 // app.get('*', (req, res) => {
 //   res.sendFile('../frontend/build/index.html')
 // })
-// app.get("/", async (req, res) => {
-//     console.log(req.sesison);
-//     res.send("server home page");
-// });
+app.get("/", async (req, res) => {
+    console.log(`the port is => ${port}`);
+    console.log("the process.env port is ==>", process.env.PORT);
+});
 
 app.use(express.static(path.join(__dirname, "client", "build")));
 
@@ -48,9 +48,8 @@ app.use("/movies/list", moviesListRouter);
 app.use("/movies", moviesRouter);
 
 app.get("/*", function (req, res) {
-    console.log("the process.env port is ==>", process.env.PORT);
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
-app.listen(process.env.PORT, "localhost", () => {
-    console.log(`server listening at port => ${port}`);
+app.listen(port, "localhost", () => {
+    console.log(`server listening at port : ${port}`);
 });
